@@ -1,8 +1,8 @@
 {
     "mappings": {
-        "{{ cookiecutter.instance_name }}": "",
-        "{{ cookiecutter.instance_name_lc }}": "",
-        "{{ cookiecutter.configuration_name }}": ""
+        "{{ cookiecutter.instance_name }}": "Gateway2Gegevenslogger",
+        "{{ cookiecutter.instance_name_lc }}": "gateway2gegevenslogger",
+        "{{ cookiecutter.configuration_name }}": "verwerkingenlogging-api-server"
     },
     "ignoredFiles": [
         "skeletonrc.json",
