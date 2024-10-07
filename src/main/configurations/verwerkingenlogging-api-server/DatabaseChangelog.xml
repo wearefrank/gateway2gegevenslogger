@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    
+    <changeSet id="verwerkingenlogging:initial" author="MLenterman">
+        <comment>Add initial verwerkingenlogging information model</comment>
+        <createTable tableName="verwerkingsactie">
+            <column name="pk" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk_verwerkingsactie"/>
+            </column>
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false" unique="true" />
+            </column>
+            <column name="actieNaam" type="VARCHAR(242)">
+                <constraints nullable="true" unique="false" />
+            </column>
+            <column name="handelingNaam" type="VARCHAR(242)">
+                <constraints nullable="true" unique="false" />
+            </column>
+            <column name="verwerkingNaam" type="VARCHAR(242)">
+                <constraints nullable="true" unique="false" />
+            </column>
+            <column name="verwerkingId" type="VARCHAR(36)">
+                <constraints nullable="true" unique="false" />
+            </column>
+            <column name="verwerkingactiviteitId" type="VARCHAR(36)">
+                <constraints nullable="true" unique="false" />
+            </column>
+            <column name="verwerkingactiviteitUrl" type="VARCHAR(2042)">
+                <constraints nullable="true" unique="false" />
+            </column>
+            <column name="vertrouwelijkheid" type="VARCHAR(13)">
+                <constraints nullable="false" unique="false" />
+            </column>
+            <column name="bewaartermijn" type="VARCHAR(100)">
+                <constraints nullable="true" unique="false" />
+            </column>
+            <column name="uitvoerder" type="VARCHAR(20)">
+                <constraints nullable="true" unique="false" />
+            </column>
+            <column name="systeem" type="VARCHAR(242)">
+                <constraints nullable="true" unique="false" />
+            </column>
+            <column name="gebruiker" type="VARCHAR(40)">
+                <constraints nullable="true" unique="false" />
+            </column>
+            <column name="gegevensbron" type="VARCHAR(242)">
+                <constraints nullable="true" unique="false" />
+            </column>
+            <column name="soortAfnemerId" type="VARCHAR(242)">
+                <constraints nullable="true" unique="false" />
+            </column>
+            <column name="afnemerId" type="VARCHAR(242)">
+                <constraints nullable="true" unique="false" />
+            </column>
+            <column name="verwerkingactiviteitIdAfnemer" type="VARCHAR(36)">
+                <constraints nullable="true" unique="false" />
+            </column>
+            <column name="verwerkingactiviteitUrlAfnemer" type="VARCHAR(2042)">
+                <constraints nullable="true" unique="false" />
+            </column>
+            <column name="verwerkingIdAfnemer" type="VARCHAR(36)">
+                <constraints nullable="true" unique="false" />
+            </column>
+            <column name="tijdstip" type="DATETIME">
+                <constraints nullable="false" unique="false" />
+            </column>
+            <column name="tijdstipRegistratie" type="DATETIME">
+                <constraints nullable="false" unique="false" />
+            </column>
+            <column name="tijdstipVerwijderd" type="DATETIME">
+                <constraints nullable="true" unique="false" />
+            </column>
+            <column name="actieId" type="VARCHAR(36)">
+                <constraints nullable="false" unique="false" />
+            </column>
+            <column name="versie" type="INTEGER">
+                <constraints nullable="false" unique="false" />
+            </column>
+        </createTable>
+
+        <createTable tableName="verwerktobject">
+            <column name="id" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk_verwerktobject"/>
+            </column>
+            <column name="objecttype" type="VARCHAR(7)">
+                <constraints nullable="false" unique="false" />
+            </column>
+            <column name="soortObjectId" type="VARCHAR(242)">
+                <constraints nullable="false" unique="false" />
+            </column>
+            <column name="objectId" type="VARCHAR(40)">
+                <constraints nullable="true" unique="false" />
+            </column>
+            <column name="betrokkenheid" type="VARCHAR(242)">
+                <constraints nullable="false" unique="false" />
+            </column>
+            <column name="verwerkingsactie_id" type="INTEGER">
+                <constraints nullable="false" unique="false" foreignKeyName="fk_pk_verwerkingsactie" references="verwerkingsactie(pk)" />
+            </column>
+        </createTable>
+
+        <createTable tableName="verwerktsoortgegeven">
+            <column name="id" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk_verwerktsoortgegeven"/>
+            </column>
+            <column name="soortGegeven" type="VARCHAR(242)">
+                <constraints nullable="false" unique="true" />
+            </column>
+        </createTable>
+
+        <createTable tableName="verwerktobject_verwerkteSoortenGegevens">
+            <column name="id" type="INTEGER" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk_verwerktobject_verwerkteSoortenGegevens"/>
+            </column>
+            <column name="verwerktobject_id" type="INTEGER">
+                <constraints nullable="false" unique="true" foreignKeyName="fk_pk_verwerktobject" references="verwerktobject(id)" />
+            </column>
+            <column name="verwerktsoortgegeven_id" type="INTEGER">
+                <constraints nullable="false" unique="true" foreignKeyName="fk_pk_verwerktsoortgegeven" references="verwerktsoortgegeven(id)" />
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
