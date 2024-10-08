@@ -3,7 +3,106 @@
     xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-    >
+>
 
-    <import resource="springIbisTestTool.xml"/>
+    <import resource="springIbisTestTool.xml" />
+
+    <bean name="dataSourceName" class="java.lang.String">
+        <constructor-arg value="${ladybug.jdbc.datasource:}" />
+    </bean>
+
+    <bean id="jndiContextPrefixFactory" class="org.frankframework.core.JndiContextPrefixFactory" />
+
+    <bean id="resourceObjectLocator"
+        class="org.frankframework.jdbc.datasource.ResourceObjectLocator" />
+    <bean id="jndiObjectLocator" class="org.frankframework.jndi.JndiObjectLocator" />
+    <bean name="dataSourceFactory" class="org.frankframework.ladybug.jdbc.LadyBugDataSourceFactory"
+        autowire="byType" />
+
+    <bean name="ladybugDataSource" factory-bean="dataSourceFactory" factory-method="getDataSource">
+        <constructor-arg value="jdbc/gateway2gegevenslogger" />
+    </bean>
+
+    <bean
+        name="databaseStorage"
+        class="nl.nn.testtool.storage.database.DatabaseStorage"
+    >
+        <property name="name" value="databaseStorage" />
+        <property name="table" value="VERWERKINGSACTIE" />
+        <property name="storageIdColumn" value="PK" />
+        <property name="metadataNames">
+            <list>
+                <value>PK</value>
+                <value>ID</value>
+                <value>ACTIENAAM</value>
+                <value>HANDELINGNAAM</value>
+                <value>VERWERKINGNAAM</value>
+                <value>VERWERKINGID</value>
+                <value>VERWERKINGACTIVITEITID</value>
+                <value>VERWERKINGACTIVITEITURL</value>
+                <value>VERTROUWELIJKHEID</value>
+                <value>BEWAARTERMIJN</value>
+                <value>UITVOERDER</value>
+                <value>SYSTEEM</value>
+                <value>GEBRUIKER</value>
+                <value>GEGEVENSBRON</value>
+                <value>SOORTAFNEMERID</value>
+                <value>AFNEMERID</value>
+                <value>VERWERKINGACTIVITEITIDAFNEMER</value>
+                <value>VERWERKINGACTIVITEITURLAFNEMER</value>
+                <value>VERWERKINGIDAFNEMER</value>
+                <value>TIJDSTIP</value>
+                <value>TIJDSTIPREGISTRATIE</value>
+                <value>TIJDSTIPVERWIJDERD</value>
+                <value>ACTIEID</value>
+                <value>VERSIE</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean name="databaseStorageView" class="nl.nn.testtool.filter.View">
+        <property name="name" value="Database storage" />
+        <property name="debugStorage">
+            <ref bean="databaseStorage" />
+        </property>
+        <property name="metadataNames">
+            <list>
+                <value>PK</value>
+                <value>ID</value>
+                <value>ACTIENAAM</value>
+                <value>HANDELINGNAAM</value>
+                <value>VERWERKINGNAAM</value>
+                <value>VERWERKINGID</value>
+                <value>VERWERKINGACTIVITEITID</value>
+                <value>VERWERKINGACTIVITEITURL</value>
+                <value>VERTROUWELIJKHEID</value>
+                <value>BEWAARTERMIJN</value>
+                <value>UITVOERDER</value>
+                <value>SYSTEEM</value>
+                <value>GEBRUIKER</value>
+                <value>GEGEVENSBRON</value>
+                <value>SOORTAFNEMERID</value>
+                <value>AFNEMERID</value>
+                <value>VERWERKINGACTIVITEITIDAFNEMER</value>
+                <value>VERWERKINGACTIVITEITURLAFNEMER</value>
+                <value>VERWERKINGIDAFNEMER</value>
+                <value>TIJDSTIP</value>
+                <value>TIJDSTIPREGISTRATIE</value>
+                <value>TIJDSTIPVERWIJDERD</value>
+                <value>ACTIEID</value>
+                <value>VERSIE</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean name="views" class="nl.nn.testtool.filter.Views">
+        <property name="views">
+            <list>
+                <ref bean="whiteBoxView" />
+                <ref bean="grayBoxView" />
+                <ref bean="blackBoxView" />
+                <ref bean="databaseStorageView" />
+            </list>
+        </property>
+    </bean>
 </beans>
