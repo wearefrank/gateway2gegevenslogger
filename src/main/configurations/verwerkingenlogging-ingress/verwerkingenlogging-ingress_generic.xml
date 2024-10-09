@@ -38,8 +38,9 @@
 				>
                 <HttpSender
 					name="CallVerwerkingenLoggingVerwerkingsactieCreateHttpSender"
-					url="/api/verwerkingenlogging/api/v1/verwerkingsactie"
-					methodType="POST" 
+					url="http://localhost:8080/api/verwerkingenlogging/api/v1/verwerkingsactie"
+					methodType="POST"
+					contentType="application/json"
 					/>
 				<Forward name="success" path="Created" />
 				<Forward name="exception" path="InternalServerError" />
