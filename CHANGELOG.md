@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.1.1](https://github.com/wearefrank/gateway2gegevenslogger/compare/v1.1.0...v1.1.1) (2024-10-09)
+
+### 🐛 Bug Fixes
+
+* HttpSender missing target hostname and sending wrong contentType ([c9b77dd](https://github.com/wearefrank/gateway2gegevenslogger/commit/c9b77dd36d4813237c2bba075b9b20627ee96d0e))
+
 ## [1.1.0](https://github.com/wearefrank/gateway2gegevenslogger/compare/v1.0.0...v1.1.0) (2024-10-09)
 
 ### 🍕 Features
