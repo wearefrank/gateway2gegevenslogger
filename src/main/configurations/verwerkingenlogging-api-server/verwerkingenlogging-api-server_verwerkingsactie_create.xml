@@ -1,0 +1,173 @@
+<Module 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../FrankConfig.xsd"
+	>
+	<Adapter 
+		name="verwerkingenlogging-api-server_verwerkingsactie_create"
+		>
+		<Receiver
+			name="verwerkingenlogging-api-server_verwerkingsactie_create"
+			>
+			<ApiListener 
+				name="verwerkingenlogging-api-server_verwerkingsactie_create" 
+				method="POST"
+				uriPattern="/verwerkingenlogging/api/v1/verwerkingsactie"
+				headerParams="Host"
+				produces="JSON"
+				consumes="JSON"
+				/>
+		</Receiver>
+
+		<Pipeline>
+			<Exits>
+				<Exit name="Created" state="SUCCESS" code="201" />
+				<Exit name="BadRequest" state="ERROR" code="400" />
+				<Exit name="Unauthorized" state="ERROR" code="401" />
+				<Exit name="Forbidden" state="ERROR" code="403" />
+				<Exit name="NotAcceptable" state="ERROR" code="406" />
+				<Exit name="Conflict" state="ERROR" code="409" />
+				<Exit name="Gone" state="ERROR" code="410" />
+				<Exit name="PreconditionFailed" state="ERROR" code="412" />
+				<Exit name="UnsupportedMediaType" state="ERROR" code="415" />
+				<Exit name="TooManyRequests" state="ERROR" code="429" />
+				<Exit name="InternalServerError" state="ERROR" code="500" />
+			</Exits>
+
+			<JsonPipe 
+				name="JsonToXml"
+				storeResultInSessionKey="orginalMessageXml"
+				>
+                <Forward name="success" path="GenerateUuid" />
+            </JsonPipe>
+
+			<UUIDGeneratorPipe
+				name="GenerateUuid"
+				preserveInput="true"
+				storeResultInSessionKey="uuid"
+				>
+				<Forward name="success" path="InsertVerwerkingsactieSender" />
+                <Forward name="error" path="InternalServerError" />
+			</UUIDGeneratorPipe>
+
+            <SenderPipe
+				name="InsertVerwerkingsactieSender"
+				storeResultInSessionKey="InsertVerwerkingsactieResult"
+				>
+                <FixedQuerySender
+					name="InsertVerwerkingsactieFixedQuerySender"
+                    query="INSERT INTO verwerkingsactie (id, actieNaam, handelingNaam, verwerkingNaam, verwerkingId, verwerkingactiviteitId, verwerkingactiviteitUrl, vertrouwelijkheid,
+					bewaartermijn, uitvoerder, systeem, gebruiker, gegevensbron, soortAfnemerId, afnemerId, verwerkingactiviteitIdAfnemer, verwerkingactiviteitUrlAfnemer, verwerkingIdAfnemer,
+					tijdstip, tijdstipRegistratie, tijdstipVerwijderd, actieId, versie) VALUES (?{id}, ?{actieNaam}, ?{handelingNaam}, ?{verwerkingNaam}, ?{verwerkingId}, ?{verwerkingactiviteitId}, ?{verwerkingactiviteitUrl}, ?{vertrouwelijkheid},
+					?{bewaartermijn}, ?{uitvoerder}, ?{systeem}, ?{gebruiker}, ?{gegevensbron}, ?{soortAfnemerId}, ?{afnemerId}, ?{verwerkingactiviteitIdAfnemer}, ?{verwerkingactiviteitUrlAfnemer}, ?{verwerkingIdAfnemer},
+					?{tijdstip}, ?{tijdstipRegistratie}, ?{tijdstipVerwijderd}, ?{actieId}, ?{versie})" 
+                    queryType="OTHER"
+					resultQuery="SELECT pk FROM verwerkingsactie WHERE id=(SELECT max(id) FROM verwerkingsactie)"
+                    />
+				<Param name="id" sessionKey="uuid" />
+				<Param name="actieNaam" xpathExpression="root/actieNaam" />
+				<Param name="handelingNaam" xpathExpression="root/handelingNaam" />
+				<Param name="verwerkingNaam" xpathExpression="root/verwerkingNaam" />
+				<Param name="verwerkingId" xpathExpression="root/verwerkingId" />
+				<Param name="verwerkingactiviteitId" xpathExpression="root/verwerkingactiviteitId" />
+				<Param name="verwerkingactiviteitUrl" xpathExpression="root/verwerkingactiviteitUrl" />
+				<Param name="vertrouwelijkheid" xpathExpression="root/vertrouwelijkheid" />
+				<Param name="bewaartermijn" xpathExpression="root/bewaartermijn" />
+				<Param name="uitvoerder" xpathExpression="root/uitvoerder" />
+				<Param name="systeem" xpathExpression="root/systeem" />
+				<Param name="gebruiker" xpathExpression="root/gebruiker" />
+				<Param name="gegevensbron" xpathExpression="root/gegevensbron" />
+				<Param name="soortAfnemerId" xpathExpression="root/soortAfnemerId" />
+				<Param name="afnemerId" xpathExpression="root/afnemerId" />
+				<Param name="verwerkingactiviteitIdAfnemer" xpathExpression="root/verwerkingactiviteitIdAfnemer" />
+				<Param name="verwerkingactiviteitUrlAfnemer" xpathExpression="root/verwerkingactiviteitUrlAfnemer" />
+				<Param name="verwerkingIdAfnemer" xpathExpression="root/verwerkingIdAfnemer" />
+				<Param name="tijdstip" xpathExpression="root/tijdstip" />
+				<Param name="tijdstipRegistratie" xpathExpression="string($NowDateTime)" >
+					<Param name="NowDateTime" pattern="{now}" type="DATETIME" />
+				</Param>
+				<Param name="tijdstipVerwijderd" xpathExpression="root/tijdstipVerwijderd" />
+				<Param name="actieId" sessionKey="uuid" />
+				<Param name="versie" value="1" />
+				<Forward name="success" path="InsertVerwerktSoortGegevenSender" />
+				<Forward name="exception" path="InternalServerError" />
+			</SenderPipe>
+				
+			<ForEachChildElementPipe
+				name="InsertVerwerktSoortGegevenSender"
+				getInputFromSessionKey="orginalMessageXml"
+				elementXPathExpression="/root/verwerkteObjecten/verwerkteSoortenGegevens/soortGegeven"
+				>
+				<FixedQuerySender
+					name="InsertVerwerktSoortGegevenFixedQuerySender"
+					query="INSERT INTO verwerktsoortgegeven (soortGegeven) SELECT ?{soortGegeven} WHERE NOT EXISTS (SELECT 1 FROM verwerktsoortgegeven WHERE soortGegeven = ?{soortGegeven})"
+					queryType="OTHER"
+					>
+					<Param name="soortGegeven" xpathExpression="soortGegeven" />
+				</FixedQuerySender>
+				<Forward name="success" path="InsertVerwerktObjectSender" />
+				<Forward name="exception" path="InternalServerError" />
+			</ForEachChildElementPipe>
+
+			<ForEachChildElementPipe
+				name="InsertVerwerktObjectSender"
+				getInputFromSessionKey="orginalMessageXml"
+				elementXPathExpression="/root/verwerkteObjecten"
+				addInputToResult="true"
+				storeResultInSessionKey="InsertVerwerktObjectResult"
+				>
+				<FixedQuerySender
+					name="InsertVerwerktObjectFixedQuerySender"
+					query="INSERT INTO verwerktobject (objecttype, soortObjectId, objectId, betrokkenheid, verwerkingsactie_id) VALUES 
+					(?{objecttype}, ?{soortObjectId}, ?{objectId}, ?{betrokkenheid}, ?{verwerkingsactie_id})"
+					queryType="OTHER"
+					resultQuery="SELECT id FROM verwerktobject WHERE id=(SELECT max(id) FROM verwerktobject)"
+					>
+					<Param name="objecttype" xpathExpression="/verwerkteObjecten/objecttype" />
+					<Param name="soortObjectId" xpathExpression="/verwerkteObjecten/soortObjectId" />
+					<Param name="objectId" xpathExpression="/verwerkteObjecten/objectId" />
+					<Param name="betrokkenheid" xpathExpression="/verwerkteObjecten/betrokkenheid" />
+					<Param name="verwerkingsactie_id" sessionKey="InsertVerwerkingsactieResult" xpathExpression="//row/field[@name = 'PK']" />
+				</FixedQuerySender>
+				<Forward name="success" path="Created" />
+                <Forward name="exception" path="InternalServerError" />
+            </ForEachChildElementPipe>
+
+			<!-- <ForEachChildElementPipe
+				name="InsertVerwerktObjectSender"
+				getInputFromSessionKey="InsertVerwerktObjectResult"
+				elementXPathExpression="/root/verwerkteObjecten/" 
+				>
+				<FixedQuerySender
+					name="InsertVerwerktObject_VerwerkteGegevensSoortenFixedQuerySender"
+					query="INSERT INTO verwerktobject_verwerkteSoortenGegevens (verwerktobject_id, verwerktsoortgegevens_id) VALUES 
+					(?{verwerktobject_id}, {verwerktsoortgegevens_id},)"
+					queryType="OTHER"
+					resultQuery="SELECT id FROM verwerktobject WHERE id=(SELECT max(id) FROM verwerktobject)"
+					>
+					<Param name="verwerktobject_id" xpathExpression="/objecttype" />
+					<Param name="verwerktsoortgegevens_id" xpathExpression="/soortObjectId" />
+					<Param name="objectId" xpathExpression="/objectId" />
+					<Param name="betrokkenheid" xpathExpression="/betrokkenheid" />
+					<Param name="verwerkingsactie_id" sessionKey="InsertVerwerkingsactieResult" xpathExpression="//pk" />
+				</FixedQuerySender>
+				<Forward name="success" path="Created" />
+                <Forward name="exception" path="InternalServerError" />
+            </ForEachChildElementPipe> -->
+
+
+			<!-- <SenderPipe
+				name="SelectVerwerkingsactieSender"
+				getInputFromSessionKey="orginalMessageXml"
+				>
+                <FixedQuerySender
+					name="SelectVerwerkingsactieFixedQuerySender"
+                    query="SELECT PK,ID,DATA FROM ENKELVOUDIGINFORMATIEOBJECT WHERE ID = ?{id}" 
+                    queryType="SELECT"
+                    />
+                    <Param name="id" sessionKey="uuid"/>
+                <Forward name="success" path="StoreSubstitutionVars" />
+                <Forward name="exception" path="InternalServerError" />
+            </SenderPipe> -->
+		</Pipeline>
+	</Adapter>
+</Module>

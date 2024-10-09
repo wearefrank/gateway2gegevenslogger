@@ -1,0 +1,7 @@
+<!DOCTYPE Configuration [
+	<!ENTITY verwerkingenlogging-ingress_generic SYSTEM "./verwerkingenlogging-ingress_generic.xml">
+	]>
+
+<Configuration name="verwerkingenlogging-ingress">
+	&verwerkingenlogging-ingress_generic;
+</Configuration>

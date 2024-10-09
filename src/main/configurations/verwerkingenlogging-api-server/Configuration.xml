@@ -1,7 +1,7 @@
 <!DOCTYPE Configuration [
-
+	<!ENTITY verwerkingenlogging-api-server_verwerkingsactie_create SYSTEM "./verwerkingenlogging-api-server_verwerkingsactie_create.xml">
 	]>
 
 <Configuration name="verwerkingenlogging-api-server">
-
+	&verwerkingenlogging-api-server_verwerkingsactie_create;
 </Configuration>
