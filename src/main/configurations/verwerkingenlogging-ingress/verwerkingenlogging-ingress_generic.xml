@@ -33,6 +33,20 @@
 				<Exit name="InternalServerError" state="ERROR" code="500" />
 			</Exits>
 
+			<DataSonnetPipe
+				name="SelectJsonRequest"
+				styleSheetName="jsonnet/SelectJsonRequest.jsonnet"
+				outputType="JSON" 
+				>
+			</DataSonnetPipe>
+
+			<DataSonnetPipe
+				name="MapToVerwerkingenloggingModel"
+				styleSheetName="jsonnet/GatewayLogToVerwerkingenloggingModel.jsonnet"
+				outputType="JSON" 
+				>
+			</DataSonnetPipe>
+
             <SenderPipe
 				name="CallVerwerkingenLoggingVerwerkingsactieCreateSender"
 				>

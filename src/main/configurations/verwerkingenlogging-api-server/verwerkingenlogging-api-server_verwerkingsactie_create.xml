@@ -80,8 +80,9 @@
 				<Param name="afnemerId" xpathExpression="root/afnemerId" />
 				<Param name="verwerkingactiviteitIdAfnemer" xpathExpression="root/verwerkingactiviteitIdAfnemer" />
 				<Param name="verwerkingactiviteitUrlAfnemer" xpathExpression="root/verwerkingactiviteitUrlAfnemer" />
-				<Param name="verwerkingIdAfnemer" xpathExpression="root/verwerkingIdAfnemer" />
-				<Param name="tijdstip" xpathExpression="root/tijdstip" />
+				<Param name="tijdstip" xpathExpression="string($NowDateTime)" >
+					<Param name="NowDateTime" pattern="{now}" type="DATETIME" />
+				</Param>
 				<Param name="tijdstipRegistratie" xpathExpression="string($NowDateTime)" >
 					<Param name="NowDateTime" pattern="{now}" type="DATETIME" />
 				</Param>
@@ -128,31 +129,28 @@
 					<Param name="betrokkenheid" xpathExpression="/verwerkteObjecten/betrokkenheid" />
 					<Param name="verwerkingsactie_id" sessionKey="InsertVerwerkingsactieResult" xpathExpression="//row/field[@name = 'PK']" />
 				</FixedQuerySender>
-				<Forward name="success" path="Created" />
+				<Forward name="success" path="InsertVerwerktObject_VerwerkteGegevensSoortenSender" />
                 <Forward name="exception" path="InternalServerError" />
             </ForEachChildElementPipe>
-
-			<!-- <ForEachChildElementPipe
-				name="InsertVerwerktObjectSender"
+			<!-- INSERT INTO verwerktobject_verwerkteSoortenGegevens (verwerktobject_id, verwerktsoortgegevens_id)  -->
+			<ForEachChildElementPipe
+				name="InsertVerwerktObject_VerwerkteGegevensSoortenSender"
 				getInputFromSessionKey="InsertVerwerktObjectResult"
-				elementXPathExpression="/root/verwerkteObjecten/" 
+				elementXPathExpression="/results/result"
 				>
 				<FixedQuerySender
 					name="InsertVerwerktObject_VerwerkteGegevensSoortenFixedQuerySender"
-					query="INSERT INTO verwerktobject_verwerkteSoortenGegevens (verwerktobject_id, verwerktsoortgegevens_id) VALUES 
-					(?{verwerktobject_id}, {verwerktsoortgegevens_id},)"
-					queryType="OTHER"
-					resultQuery="SELECT id FROM verwerktobject WHERE id=(SELECT max(id) FROM verwerktobject)"
+					query="SELECT id FROM verwerktsoortgegeven WHERE soortGegeven IN (?{soortenGegevens})"
+					queryType="SELECT"
 					>
-					<Param name="verwerktobject_id" xpathExpression="/objecttype" />
-					<Param name="verwerktsoortgegevens_id" xpathExpression="/soortObjectId" />
-					<Param name="objectId" xpathExpression="/objectId" />
-					<Param name="betrokkenheid" xpathExpression="/betrokkenheid" />
-					<Param name="verwerkingsactie_id" sessionKey="InsertVerwerkingsactieResult" xpathExpression="//pk" />
+					<!-- <Param name="verwerktobject_id" xpathExpression="/objecttype" />
+					<Param name="verwerktsoortgegevens_id" sessionKey="InsertVerwerkingsactieResult" xpathExpression="//pk" /> -->
+					<!-- <Param name="soortenGegevens" xpathExpression="string-join(//soortGegeven, ',')" /> -->
+					<Param name="soortenGegevens" xpathExpression="concat('''', string-join(//soortGegeven, ''','''), '''')" />
 				</FixedQuerySender>
 				<Forward name="success" path="Created" />
                 <Forward name="exception" path="InternalServerError" />
-            </ForEachChildElementPipe> -->
+            </ForEachChildElementPipe>
 
 
 			<!-- <SenderPipe
