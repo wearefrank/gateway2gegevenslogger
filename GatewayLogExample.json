@@ -1,0 +1,872 @@
+[
+    {
+        "consumer": {
+            "username": "yaseen"
+        },
+        "start_time": 1728559563404,
+        "service_id": "534957599146115778",
+        "apisix_latency": 4047.0000209808,
+        "upstream_latency": 331,
+        "latency": 4378.0000209808,
+        "server": {
+            "version": "3.8.0",
+            "hostname": "3dde193cbb6e"
+        },
+        "upstream": "81.24.7.86:443",
+        "route_id": "534958148432167618",
+        "request": {
+            "uri": "/api/kic/v1/taken",
+            "size": 312,
+            "method": "GET",
+            "url": "https://frankgateway.dogbytes.org:9443/api/kic/v1/taken",
+            "querystring": {},
+            "headers": {
+                "accept-encoding": "gzip, deflate, br",
+                "postman-token": "ec1c86af-1f90-48ed-9878-8789220017b3",
+                "connection": "keep-alive",
+                "accept": "*/*",
+                "user-agent": "PostmanRuntime/7.42.0",
+                "cookie": "PHPSESSID=feud6ksmtul3gip113uo18nime",
+                "authorization": "57693275-77d9-4aa4-a39b-8f3b87212f9d",
+                "host": "frankgateway.dogbytes.org:9443"
+            }
+        },
+        "response": {
+            "status": 200,
+            "headers": {
+                "transfer-encoding": "chunked",
+                "connection": "close",
+                "x-powered-by": "PHP/8.2.24",
+                "cache-control": "max-age=0, must-revalidate, private",
+                "expires": "Thu, 10 Oct 2024 11:26:07 GMT",
+                "access-control-allow-credentials": "true",
+                "process-id": "",
+                "access-control-allow-origin": "",
+                "content-security-policy": "default-src 'self'",
+                "content-type": "application/json",
+                "link": "<https://api.accept.common-gateway.commonground.nu/docs.jsonld>; rel=\"http://www.w3.org/ns/hydra/core#apiDocumentation\"",
+                "permissions-policy": "accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), cross-origin-isolated=(), display-capture=(), document-domain=(), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(self), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=(), conversion-measurement=(self),focus-without-user-activation=(), hid=(), idle-detection=(), serial=(),sync-script=(), trust-token-redemption=(), vertical-scroll=(self)",
+                "set-cookie": "PHPSESSID=42mcdqqlbs6cihvsdto8bv009h; path=/; secure; httponly; samesite=lax",
+                "strict-transport-security": "max-age=31536000; includeSubDomains",
+                "date": "Thu, 10 Oct 2024 11:26:07 GMT",
+                "server": "APISIX/3.8.0"
+            },
+            "size": 28811,
+            "body": "{\"results\":[{\"_id\":\"4a90a330-dbec-45b4-b6f9-66ffc5f9189f\",\"_self\":{\"id\":\"4a90a330-dbec-45b4-b6f9-66ffc5f9189f\",\"name\":\"Aanvraag Ingediend\",\"self\":\"\\/api\\/kic\\/v1\\/taken\\/4a90a330-dbec-45b4-b6f9-66ffc5f9189f\",\"schema\":{\"id\":\"68f5a0c8-e2cd-4c54-b26f-33fbba5990b7\",\"name\":\"Taak\",\"ref\":\"https:\\/\\/commongateway.nl\\/klant.taak.schema.json\"},\"level\":1,\"dateCreated\":\"2024-09-26T14:37:58+00:00\",\"dateModified\":\"2024-10-10T08:17:14+00:00\",\"dateDeleted\":null,\"database\":{\"id\":\"237259d4-c94a-43ca-b8df-c5638a138640\",\"name\":\"Acc-PTB-Yard\",\"ref\":\"https:\\/\\/commongateway.nl\\/databases\\/ptb.yard.database.json\"},\"owner\":{\"id\":\"ce16243c-f2c3-4abc-a2c9-702df174b630\",\"name\":\"APIKEY_USER\",\"ref\":\"apikey.ptb@yard.nl\"},\"organization\":{\"id\":\"6e9ddea5-8479-42f3-a187-2b00d1e417f1\",\"name\":\"Yard PTB\",\"ref\":\"https:\\/\\/commongateway.nl\\/organizations\\/ptb.yard.organization.json\"},\"application\":{\"id\":null,\"name\":null,\"ref\":null},\"synchronizations\":null},\"id\":\"4a90a330-dbec-45b4-b6f9-66ffc5f9189f\",\"type\":\"https:\\/\\/commongateway.nl\\/taak\\/type\",\"url\":null,\"data\":{\"zaakTypeUrl\":\"https:\\/\\/api.accept.common-gateway.commonground.nu\\/api\\/ztc\\/v1\\/zaaktypen\\/4a96e539-8c1e-4187-8cb2-335759a84a84\",\"documentTypeUrl\":\"https:\\/\\/api.accept.common-gateway.commonground.nu\\/api\\/ztc\\/v1\\/informatieobjecttypen\\/46839882-8575-4c59-9c5a-56d3147271b5\"},\"zaak\":\"https:\\/\\/api.accept.common-gateway.commonground.nu\\/api\\/zrc\\/v1\\/zaken\\/f5d1c9b7-e3a9-485d-98cb-1667e1d0537c\",\"title\":\"Aanvraag Ingediend\",\"onderwerp\":\"Bouwvergunning\",\"toelichting\":\"De taak betreft de aanvraag van een bouwvergunning voor een woning.\",\"status\":\"open\",\"verloopdatum\":\"2024-10-10T14:00:00Z\",\"vervaldatum\":\"2024-12-10T14:00:00Z\",\"verzonden_data\":[\"document1.pdf\",\"document2.pdf\"],\"verwerker_taak_id\":\"650e8400-e29b-41d4-a716-446655440000\",\"extraData\":{\"leverancier\":\"Xxllnc\"},\"actie\":\"\\/api\\/objects\\/be0db76e-ff34-4f3a-8abf-506df9c67d4d\",\"identificatie\":\"\\/api\\/objects\\/20ef5594-f2a9-4bb7-b196-acd3dd0cabd3\",\"betrokkenen\":[\"\\/api\\/objects\\/9229b26d-9124-43ab-8473-995a7e31bffc\"],\"embedded\":{\"actie\":{\"_self\":{\"id\":\"be0db76e-ff34-4f3a-8abf-506df9c67d4d\",\"name\":\"No name could be established for this entity\",\"self\":\"\\/api\\/objects\\/be0db76e-ff34-4f3a-8abf-506df9c67d4d\",\"schema\":{\"id\":\"b8c0ab8b-f4e3-4ab3-9b99-de10e01bad5a\",\"name\":\"TaakFormulier\",\"ref\":\"https:\\/\\/commongateway.nl\\/klant.taak.formulier.schema.json\"},\"level\":2,\"dateCreated\":\"2024-09-26T14:37:58+00:00\",\"dateModified\":\"2024-09-30T13:10:41+00:00\",\"dateDeleted\":null,\"database\":{\"id\":\"237259d4-c94a-43ca-b8df-c5638a138640\",\"name\":\"Acc-PTB-Yard\",\"ref\":\"https:\\/\\/commongateway.nl\\/databases\\/ptb.yard.database.json\"},\"owner\":{\"id\":\"ce16243c-f2c3-4abc-a2c9-702df174b630\",\"name\":\"APIKEY_USER\",\"ref\":\"apikey.ptb@yard.nl\"},\"organization\":{\"id\":\"6e9ddea5-8479-42f3-a187-2b00d1e417f1\",\"name\":\"Yard PTB\",\"ref\":\"https:\\/\\/commongateway.nl\\/organizations\\/ptb.yard.organization.json\"},\"application\":{\"id\":null,\"name\":null,\"ref\":null},\"synchronizations\":null},\"type\":\"InformatieObjectType\",\"value\":\"https:\\/\\/api.accept.common-gateway.commonground.nu\\/api\\/ztc\\/v1\\/informatieobjecttypen\\/46839882-8575-4c59-9c5a-56d3147271b5\",\"id\":\"be0db76e-ff34-4f3a-8abf-506df9c67d4d\"},\"identificatie\":{\"_self\":{\"id\":\"20ef5594-f2a9-4bb7-b196-acd3dd0cabd3\",\"name\":\"No name could be established for this entity\",\"self\":\"\\/api\\/objects\\/20ef5594-f2a9-4bb7-b196-acd3dd0cabd3\",\"schema\":{\"id\":\"70e7ec17-93ab-46de-82d0-a47e623a3695\",\"name\":\"TaakIdentificatie\",\"ref\":\"https:\\/\\/commongateway.nl\\/klant.taak.identificatie.schema.json\"},\"level\":2,\"dateCreated\":\"2024-09-26T14:37:58+00:00\",\"dateModified\":\"2024-09-26T14:37:59+00:00\",\"dateDeleted\":null,\"database\":{\"id\":\"237259d4-c94a-43ca-b8df-c5638a138640\",\"name\":\"Acc-PTB-Yard\",\"ref\":\"https:\\/\\/commongateway.nl\\/databases\\/ptb.yard.database.json\"},\"owner\":{\"id\":\"ce16243c-f2c3-4abc-a2c9-702df174b630\",\"name\":\"APIKEY_USER\",\"ref\":\"apikey.ptb@yard.nl\"},\"organization\":{\"id\":\"6e9ddea5-8479-42f3-a187-2b00d1e417f1\",\"name\":\"Yard PTB\",\"ref\":\"https:\\/\\/commongateway.nl\\/organizations\\/ptb.yard.organization.json\"},\"application\":{\"id\":null,\"name\":null,\"ref\":null},\"synchronizations\":null},\"type\":\"id\",\"value\":\"123\",\"id\":\"20ef5594-f2a9-4bb7-b196-acd3dd0cabd3\"},\"betrokkenen\":[{\"_self\":{\"id\":\"9229b26d-9124-43ab-8473-995a7e31bffc\",\"name\":\"No name could be established for this entity\",\"self\":\"\\/api\\/objects\\/9229b26d-9124-43ab-8473-995a7e31bffc\",\"schema\":{\"id\":\"db4f31bf-2782-4f0e-aead-c0c51c972ec7\",\"name\":\"Betrokenne\",\"ref\":\"https:\\/\\/commongateway.nl\\/klant.taak.betrokkene.schema.json\"},\"level\":2,\"dateCreated\":\"2024-09-26T14:37:59+00:00\",\"dateModified\":\"2024-09-26T14:37:59+00:00\",\"dateDeleted\":null,\"database\":{\"id\":\"237259d4-c94a-43ca-b8df-c5638a138640\",\"name\":\"Acc-PTB-Yard\",\"ref\":\"https:\\/\\/commongateway.nl\\/databases\\/ptb.yard.database.json\"},\"owner\":{\"id\":\"ce16243c-f2c3-4abc-a2c9-702df174b630\",\"name\":\"APIKEY_USER\",\"ref\":\"apikey.ptb@yard.nl\"},\"organization\":{\"id\":\"6e9ddea5-8479-42f3-a187-2b00d1e417f1\",\"name\":\"Yard PTB\",\"ref\":\"https:\\/\\/commongateway.nl\\/organizations\\/ptb.yard.organization.json\"},\"application\":{\"id\":null,\"name\":null,\"ref\":null},\"synchronizations\":null},\"betrokkeneType\":\"natuurlijk_persoon\",\"rolType\":\"aanvrager\",\"betrokkene\":\"\\/api\\/objects\\/61d670e2-0906-4191-9e7c-5625c5df4c20\",\"partij\":null,\"embedded\":{\"betrokkene\":{\"_self\":{\"id\":\"61d670e2-0906-4191-9e7c-5625c5df4c20\",\"name\":\"John Doe\",\"self\":\"\\/api\\/objects\\/61d670e2-0906-4191-9e7c-5625c5df4c20\",\"schema\":{\"id\":\"b9674ef2-02df-493b-aa45-b18d4a7b598d\",\"name\":\"BetrokenneMedewerkerOfPersoon\",\"ref\":\"https:\\/\\/commongateway.nl\\/klant.taak.betrokkeneMedewerkerOfPersoon.schema.json\"},\"level\":3,\"dateCreated\":\"2024-09-26T14:37:59+00:00\",\"dateModified\":\"2024-09-26T14:37:59+00:00\",\"dateDeleted\":null,\"database\":{\"id\":\"237259d4-c94a-43ca-b8df-c5638a138640\",\"name\":\"Acc-PTB-Yard\",\"ref\":\"https:\\/\\/commongateway.nl\\/databases\\/ptb.yard.database.json\"},\"owner\":{\"id\":\"ce16243c-f2c3-4abc-a2c9-702df174b630\",\"name\":\"APIKEY_USER\",\"ref\":\"apikey.ptb@yard.nl\"},\"organization\":{\"id\":\"6e9ddea5-8479-42f3-a187-2b00d1e417f1\",\"name\":\"Yard PTB\",\"ref\":\"https:\\/\\/commongateway.nl\\/organizations\\/ptb.yard.organization.json\"},\"application\":{\"id\":null,\"name\":null,\"ref\":null},\"synchronizations\":null},\"naam\":\"John Doe\",\"medewerkerIdentificatie\":\"med123\",\"inpBsn\":\"900198424\"}}}]}},{\"_id\":\"497a23f4-ad14-4194-9c19-d456cb58865c\",\"_self\":{\"id\":\"497a23f4-ad14-4194-9c19-d456cb58865c\",\"name\":\"Aanvullingen\",\"self\":\"\\/api\\/kic\\/v1\\/taken\\/497a23f4-ad14-4194-9c19-d456cb58865c\",\"schema\":{\"id\":\"68f5a0c8-e2cd-4c54-b26f-33fbba5990b7\",\"name\":\"Taak\",\"ref\":\"https:\\/\\/commongateway.nl\\/klant.taak.schema.json\"},\"level\":1,\"dateCreated\":\"2024-10-07T09:38:10+00:00\",\"dateModified\":\"2024-10-07T09:38:11+00:00\",\"dateDeleted\":null,\"database\":{\"id\":\"237259d4-c94a-43ca-b8df-c5638a138640\",\"name\":\"Acc-PTB-Yard\",\"ref\":\"https:\\/\\/commongateway.nl\\/databases\\/ptb.yard.database.json\"},\"owner\":{\"id\":\"ce16243c-f2c3-4abc-a2c9-702df174b630\",\"name\":\"APIKEY_USER\",\"ref\":\"apikey.ptb@yard.nl\"},\"organization\":{\"id\":\"6e9ddea5-8479-42f3-a187-2b00d1e417f1\",\"name\":\"Yard PTB\",\"ref\":\"https:\\/\\/commongateway.nl\\/organizations\\/ptb.yard.organization.json\"},\"application\":{\"id\":null,\"name\":null,\"ref\":null},\"synchronizations\":null},\"id\":\"497a23f4-ad14-4194-9c19-d456cb58865c\",\"type\":\"https:\\/\\/commongateway.nl\\/taak\\/type\",\"url\":null,\"data\":{\"documentTypeUrl\":\"https:\\/\\/api.accept.common-gateway.commonground.nu\\/api\\/ztc\\/v1\\/informatieobjecttypen\\/46839882-8575-4c59-9c5a-56d3147271b5\"},\"zaak\":\"https:\\/\\/api.accept.common-gateway.commonground.nu\\/api\\/zrc\\/v1\\/zaken\\/f5d1c9b7-e3a9-485d-98cb-1667e1d0537c\",\"title\":\"Aanvullingen\",\"onderwerp\":\"Omgevingsvergunning kerkstraat 1\",\"toelichting\":\"Er ontbreken stukken\",\"status\":\"open\",\"verloopdatum\":\"2024-10-31T14:00:00Z\",\"vervaldatum\":\"2024-12-10T14:00:00Z\",\"verzonden_data\":[],\"verwerker_taak_id\":\"650e8400-e29b-41d4-a716-446655440000\",\"extraData\":{\"leverancier\":\"rx-mission\"},\"actie\":\"\\/api\\/objects\\/b0d3a396-6f25-4443-8608-6cda8712e6d5\",\"identificatie\":null,\"betrokkenen\":[],\"embedded\":{\"actie\":{\"_self\":{\"id\":\"b0d3a396-6f25-4443-8608-6cda8712e6d5\",\"name\":\"No name could be established for this entity\",\"self\":\"\\/api\\/objects\\/b0d3a396-6f25-4443-8608-6cda8712e6d5\",\"schema\":{\"id\":\"b8c0ab8b-f4e3-4ab3-9b99-de10e01bad5a\",\"name\":\"TaakFormulier\",\"ref\":\"https:\\/\\/commongateway.nl\\/klant.taak.formulier.schema.json\"},\"level\":2,\"dateCreated\":\"2024-10-07T09:38:10+00:00\",\"dateModified\":\"2024-10-07T09:38:11+00:00\",\"dateDeleted\":null,\"database\":{\"id\":\"237259d4-c94a-43ca-b8df-c5638a138640\",\"name\":\"Acc-PTB-Yard\",\"ref\":\"https:\\/\\/commongateway.nl\\/databases\\/ptb.yard.database.json\"},\"owner\":{\"id\":\"ce16243c-f2c3-4abc-a2c9-702df174b630\",\"name\":\"APIKEY_USER\",\"ref\":\"apikey.ptb@yard.nl\"},\"organization\":{\"id\":\"6e9ddea5-8479-42f3-a187-2b00d1e417f1\",\"name\":\"Yard PTB\",\"ref\":\"https:\\/\\/commongateway.nl\\/organizations\\/ptb.yard.organization.json\"},\"application\":{\"id\":null,\"name\":null,\"ref\":null},\"synchronizations\":null},\"type\":null,\"value\":null,\"id\":\"b0d3a396-6f25-4443-8608-6cda8712e6d5\"}}},{\"_id\":\"6bacee3a-2db5-4953-8c2f-7c5b9df34afa\",\"_self\":{\"id\":\"6bacee3a-2db5-4953-8c2f-7c5b9df34afa\",\"name\":\"Aanvullingen\",\"self\":\"\\/api\\/kic\\/v1\\/taken\\/6bacee3a-2db5-4953-8c2f-7c5b9df34afa\",\"schema\":{\"id\":\"68f5a0c8-e2cd-4c54-b26f-33fbba5990b7\",\"name\":\"Taak\",\"ref\":\"https:\\/\\/commongateway.nl\\/klant.taak.schema.json\"},\"level\":1,\"dateCreated\":\"2024-10-07T09:44:24+00:00\",\"dateModified\":\"2024-10-07T09:44:25+00:00\",\"dateDeleted\":null,\"database\":{\"id\":\"237259d4-c94a-43ca-b8df-c5638a138640\",\"name\":\"Acc-PTB-Yard\",\"ref\":\"https:\\/\\/commongateway.nl\\/databases\\/ptb.yard.database.json\"},\"owner\":{\"id\":\"ce16243c-f2c3-4abc-a2c9-702df174b630\",\"name\":\"APIKEY_USER\",\"ref\":\"apikey.ptb@yard.nl\"},\"organization\":{\"id\":\"6e9ddea5-8479-42f3-a187-2b00d1e417f1\",\"name\":\"Yard PTB\",\"ref\":\"https:\\/\\/commongateway.nl\\/organizations\\/ptb.yard.organization.json\"},\"application\":{\"id\":null,\"name\":null,\"ref\":null},\"synchronizations\":null},\"id\":\"6bacee3a-2db5-4953-8c2f-7c5b9df34afa\",\"type\":\"https:\\/\\/commongateway.nl\\/taak\\/type\",\"url\":null,\"data\":{\"documentTypeUrl\":\"https:\\/\\/catalogi.preprod-rx-services.nl\\/api\\/v1\\/informatieobjecttypen\\/01d46bcb-ad82-4195-91ab-1d3ef2645df2\"},\"zaak\":\"https:\\/\\/zaken.preprod-rx-services.nl\\/api\\/v1\\/zaken\\/5000acca-8561-4196-ba79-f5d7aacd8bac\",\"title\":\"Aanvullingen\",\"onderwerp\":\"Omgevingsvergunning kerkstraat 1\",\"toelichting\":\"Er ontbreken stukken\",\"status\":\"open\",\"verloopdatum\":\"2024-10-31T14:00:00Z\",\"vervaldatum\":\"2024-12-10T14:00:00Z\",\"verzonden_data\":[],\"verwerker_taak_id\":\"650e8400-e29b-41d4-a716-446655440000\",\"extraData\":{\"leverancier\":\"rx-mission\"},\"actie\":\"\\/api\\/objects\\/48dd39b3-a836-4dba-9898-d418f611873f\",\"identificatie\":null,\"betrokkenen\":[],\"embedded\":{\"actie\":{\"_self\":{\"id\":\"48dd39b3-a836-4dba-9898-d418f611873f\",\"name\":\"No name could be established for this entity\",\"self\":\"\\/api\\/objects\\/48dd39b3-a836-4dba-9898-d418f611873f\",\"schema\":{\"id\":\"b8c0ab8b-f4e3-4ab3-9b99-de10e01bad5a\",\"name\":\"TaakFormulier\",\"ref\":\"https:\\/\\/commongateway.nl\\/klant.taak.formulier.schema.json\"},\"level\":2,\"dateCreated\":\"2024-10-07T09:44:25+00:00\",\"dateModified\":\"2024-10-07T09:44:25+00:00\",\"dateDeleted\":null,\"database\":{\"id\":\"237259d4-c94a-43ca-b8df-c5638a138640\",\"name\":\"Acc-PTB-Yard\",\"ref\":\"https:\\/\\/commongateway.nl\\/databases\\/ptb.yard.database.json\"},\"owner\":{\"id\":\"ce16243c-f2c3-4abc-a2c9-702df174b630\",\"name\":\"APIKEY_USER\",\"ref\":\"apikey.ptb@yard.nl\"},\"organization\":{\"id\":\"6e9ddea5-8479-42f3-a187-2b00d1e417f1\",\"name\":\"Yard PTB\",\"ref\":\"https:\\/\\/commongateway.nl\\/organizations\\/ptb.yard.organization.json\"},\"application\":{\"id\":null,\"name\":null,\"ref\":null},\"synchronizations\":null},\"type\":null,\"value\":null,\"id\":\"48dd39b3-a836-4dba-9898-d418f611873f\"}}},{\"_id\":\"6d9bf0c6-ed9c-43fe-ba37-ce57fecbd061\",\"_self\":{\"id\":\"6d9bf0c6-ed9c-43fe-ba37-ce57fecbd061\",\"name\":\"Aanvullingen\",\"self\":\"\\/api\\/kic\\/v1\\/taken\\/6d9bf0c6-ed9c-43fe-ba37-ce57fecbd061\",\"schema\":{\"id\":\"68f5a0c8-e2cd-4c54-b26f-33fbba5990b7\",\"name\":\"Taak\",\"ref\":\"https:\\/\\/commongateway.nl\\/klant.taak.schema.json\"},\"level\":1,\"dateCreated\":\"2024-10-07T09:44:39+00:00\",\"dateModified\":\"2024-10-07T09:44:40+00:00\",\"dateDeleted\":null,\"database\":{\"id\":\"237259d4-c94a-43ca-b8df-c5638a138640\",\"name\":\"Acc-PTB-Yard\",\"ref\":\"https:\\/\\/commongateway.nl\\/databases\\/ptb.yard.database.json\"},\"owner\":{\"id\":\"ce16243c-f2c3-4abc-a2c9-702df174b630\",\"name\":\"APIKEY_USER\",\"ref\":\"apikey.ptb@yard.nl\"},\"organization\":{\"id\":\"6e9ddea5-8479-42f3-a187-2b00d1e417f1\",\"name\":\"Yard PTB\",\"ref\":\"https:\\/\\/commongateway.nl\\/organizations\\/ptb.yard.organization.json\"},\"application\":{\"id\":null,\"name\":null,\"ref\":null},\"synchronizations\":null},\"id\":\"6d9bf0c6-ed9c-43fe-ba37-ce57fecbd061\",\"type\":\"https:\\/\\/commongateway.nl\\/taak\\/type\",\"url\":null,\"data\":{\"documentTypeUrl\":\"https:\\/\\/catalogi.preprod-rx-services.nl\\/api\\/v1\\/informatieobjecttypen\\/01d46bcb-ad82-4195-91ab-1d3ef2645df2\"},\"zaak\":\"https:\\/\\/zaken.preprod-rx-services.nl\\/api\\/v1\\/zaken\\/5000acca-8561-4196-ba79-f5d7aacd8bac\",\"title\":\"Aanvullingen\",\"onderwerp\":\"Omgevingsvergunning kerkstraat 1\",\"toelichting\":\"Er ontbreken stukken\",\"status\":\"open\",\"verloopdatum\":\"2024-10-31T14:00:00Z\",\"vervaldatum\":\"2024-12-10T14:00:00Z\",\"verzonden_data\":[],\"verwerker_taak_id\":null,\"extraData\":{\"leverancier\":\"rx-mission\"},\"actie\":\"\\/api\\/objects\\/60c7ee34-289d-4ba3-9d9f-60a51fc52c11\",\"identificatie\":null,\"betrokkenen\":[],\"embedded\":{\"actie\":{\"_self\":{\"id\":\"60c7ee34-289d-4ba3-9d9f-60a51fc52c11\",\"name\":\"No name could be established for this entity\",\"self\":\"\\/api\\/objects\\/60c7ee34-289d-4ba3-9d9f-60a51fc52c11\",\"schema\":{\"id\":\"b8c0ab8b-f4e3-4ab3-9b99-de10e01bad5a\",\"name\":\"TaakFormulier\",\"ref\":\"https:\\/\\/commongateway.nl\\/klant.taak.formulier.schema.json\"},\"level\":2,\"dateCreated\":\"2024-10-07T09:44:39+00:00\",\"dateModified\":\"2024-10-07T09:44:40+00:00\",\"dateDeleted\":null,\"database\":{\"id\":\"237259d4-c94a-43ca-b8df-c5638a138640\",\"name\":\"Acc-PTB-Yard\",\"ref\":\"https:\\/\\/commongateway.nl\\/databases\\/ptb.yard.database.json\"},\"owner\":{\"id\":\"ce16243c-f2c3-4abc-a2c9-702df174b630\",\"name\":\"APIKEY_USER\",\"ref\":\"apikey.ptb@yard.nl\"},\"organization\":{\"id\":\"6e9ddea5-8479-42f3-a187-2b00d1e417f1\",\"name\":\"Yard PTB\",\"ref\":\"https:\\/\\/commongateway.nl\\/organizations\\/ptb.yard.organization.json\"},\"application\":{\"id\":null,\"name\":null,\"ref\":null},\"synchronizations\":null},\"type\":null,\"value\":null,\"id\":\"60c7ee34-289d-4ba3-9d9f-60a51fc52c11\"}}},{\"_id\":\"305df11b-c098-4675-aa4c-8132b41fa005\",\"_self\":{\"id\":\"305df11b-c098-4675-aa4c-8132b41fa005\",\"name\":\"Aanvullingen\",\"self\":\"\\/api\\/kic\\/v1\\/taken\\/305df11b-c098-4675-aa4c-8132b41fa005\",\"schema\":{\"id\":\"68f5a0c8-e2cd-4c54-b26f-33fbba5990b7\",\"name\":\"Taak\",\"ref\":\"https:\\/\\/commongateway.nl\\/klant.taak.schema.json\"},\"level\":1,\"dateCreated\":\"2024-10-07T10:02:49+00:00\",\"dateModified\":\"2024-10-07T10:02:50+00:00\",\"dateDeleted\":null,\"database\":{\"id\":\"237259d4-c94a-43ca-b8df-c5638a138640\",\"name\":\"Acc-PTB-Yard\",\"ref\":\"https:\\/\\/commongateway.nl\\/databases\\/ptb.yard.database.json\"},\"owner\":{\"id\":\"ce16243c-f2c3-4abc-a2c9-702df174b630\",\"name\":\"APIKEY_USER\",\"ref\":\"apikey.ptb@yard.nl\"},\"organization\":{\"id\":\"6e9ddea5-8479-42f3-a187-2b00d1e417f1\",\"name\":\"Yard PTB\",\"ref\":\"https:\\/\\/commongateway.nl\\/organizations\\/ptb.yard.organization.json\"},\"application\":{\"id\":null,\"name\":null,\"ref\":null},\"synchronizations\":null},\"id\":\"305df11b-c098-4675-aa4c-8132b41fa005\",\"type\":\"https:\\/\\/commongateway.nl\\/taak\\/type\",\"url\":null,\"data\":{\"documentTypeUrl\":\"https:\\/\\/catalogi.preprod-rx-services.nl\\/api\\/v1\\/informatieobjecttypen\\/01d46bcb-ad82-4195-91ab-1d3ef2645df2\"},\"zaak\":\"https:\\/\\/zaken.preprod-rx-services.nl\\/api\\/v1\\/zaken\\/5000acca-8561-4196-ba79-f5d7aacd8bac\",\"title\":\"Aanvullingen\",\"onderwerp\":\"Omgevingsvergunning kerkstraat 1\",\"toelichting\":\"Er ontbreken stukken\",\"status\":\"open\",\"verloopdatum\":\"2024-10-31T14:00:00Z\",\"vervaldatum\":\"2024-12-10T14:00:00Z\",\"verzonden_data\":[],\"verwerker_taak_id\":null,\"extraData\":{\"leverancier\":\"rx-mission\"},\"actie\":\"\\/api\\/objects\\/b96c8e85-19f9-4e79-a2d4-530a7218650e\",\"identificatie\":null,\"betrokkenen\":[],\"embedded\":{\"actie\":{\"_self\":{\"id\":\"b96c8e85-19f9-4e79-a2d4-530a7218650e\",\"name\":\"No name could be established for this entity\",\"self\":\"\\/api\\/objects\\/b96c8e85-19f9-4e79-a2d4-530a7218650e\",\"schema\":{\"id\":\"b8c0ab8b-f4e3-4ab3-9b99-de10e01bad5a\",\"name\":\"TaakFormulier\",\"ref\":\"https:\\/\\/commongateway.nl\\/klant.taak.formulier.schema.json\"},\"level\":2,\"dateCreated\":\"2024-10-07T10:02:49+00:00\",\"dateModified\":\"2024-10-07T10:02:50+00:00\",\"dateDeleted\":null,\"database\":{\"id\":\"237259d4-c94a-43ca-b8df-c5638a138640\",\"name\":\"Acc-PTB-Yard\",\"ref\":\"https:\\/\\/commongateway.nl\\/databases\\/ptb.yard.database.json\"},\"owner\":{\"id\":\"ce16243c-f2c3-4abc-a2c9-702df174b630\",\"name\":\"APIKEY_USER\",\"ref\":\"apikey.ptb@yard.nl\"},\"organization\":{\"id\":\"6e9ddea5-8479-42f3-a187-2b00d1e417f1\",\"name\":\"Yard PTB\",\"ref\":\"https:\\/\\/commongateway.nl\\/organizations\\/ptb.yard.organization.json\"},\"application\":{\"id\":null,\"name\":null,\"ref\":null},\"synchronizations\":null},\"type\":null,\"value\":null,\"id\":\"b96c8e85-19f9-4e79-a2d4-530a7218650e\"}}},{\"_id\":\"c6b6f0e3-8aab-4b6a-8d0e-d9c10099f792\",\"_self\":{\"id\":\"c6b6f0e3-8aab-4b6a-8d0e-d9c10099f792\",\"name\":\"Aanvullingen\",\"self\":\"\\/api\\/kic\\/v1\\/taken\\/c6b6f0e3-8aab-4b6a-8d0e-d9c10099f792\",\"schema\":{\"id\":\"68f5a0c8-e2cd-4c54-b26f-33fbba5990b7\",\"name\":\"Taak\",\"ref\":\"https:\\/\\/commongateway.nl\\/klant.taak.schema.json\"},\"level\":1,\"dateCreated\":\"2024-10-07T10:03:05+00:00\",\"dateModified\":\"2024-10-07T10:03:05+00:00\",\"dateDeleted\":null,\"database\":{\"id\":\"237259d4-c94a-43ca-b8df-c5638a138640\",\"name\":\"Acc-PTB-Yard\",\"ref\":\"https:\\/\\/commongateway.nl\\/databases\\/ptb.yard.database.json\"},\"owner\":{\"id\":\"ce16243c-f2c3-4abc-a2c9-702df174b630\",\"name\":\"APIKEY_USER\",\"ref\":\"apikey.ptb@yard.nl\"},\"organization\":{\"id\":\"6e9ddea5-8479-42f3-a187-2b00d1e417f1\",\"name\":\"Yard PTB\",\"ref\":\"https:\\/\\/commongateway.nl\\/organizations\\/ptb.yard.organization.json\"},\"application\":{\"id\":null,\"name\":null,\"ref\":null},\"synchronizations\":null},\"id\":\"c6b6f0e3-8aab-4b6a-8d0e-d9c10099f792\",\"type\":null,\"url\":null,\"data\":{\"documentTypeUrl\":\"https:\\/\\/catalogi.preprod-rx-services.nl\\/api\\/v1\\/informatieobjecttypen\\/01d46bcb-ad82-4195-91ab-1d3ef2645df2\"},\"zaak\":\"https:\\/\\/zaken.preprod-rx-services.nl\\/api\\/v1\\/zaken\\/5000acca-8561-4196-ba79-f5d7aacd8bac\",\"title\":\"Aanvullingen\",\"onderwerp\":\"Omgevingsvergunning kerkstraat 1\",\"toelichting\":\"Er ontbreken stukken\",\"status\":\"open\",\"verloopdatum\":\"2024-10-31T14:00:00Z\",\"vervaldatum\":\"2024-12-10T14:00:00Z\",\"verzonden_data\":[],\"verwerker_taak_id\":null,\"extraData\":{\"leverancier\":\"rx-mission\"},\"actie\":\"\\/api\\/objects\\/5e3dc7b7-7019-417b-ad8c-ad03b71f316c\",\"identificatie\":null,\"betrokkenen\":[],\"embedded\":{\"actie\":{\"_self\":{\"id\":\"5e3dc7b7-7019-417b-ad8c-ad03b71f316c\",\"name\":\"No name could be established for this entity\",\"self\":\"\\/api\\/objects\\/5e3dc7b7-7019-417b-ad8c-ad03b71f316c\",\"schema\":{\"id\":\"b8c0ab8b-f4e3-4ab3-9b99-de10e01bad5a\",\"name\":\"TaakFormulier\",\"ref\":\"https:\\/\\/commongateway.nl\\/klant.taak.formulier.schema.json\"},\"level\":2,\"dateCreated\":\"2024-10-07T10:03:05+00:00\",\"dateModified\":\"2024-10-07T10:03:05+00:00\",\"dateDeleted\":null,\"database\":{\"id\":\"237259d4-c94a-43ca-b8df-c5638a138640\",\"name\":\"Acc-PTB-Yard\",\"ref\":\"https:\\/\\/commongateway.nl\\/databases\\/ptb.yard.database.json\"},\"owner\":{\"id\":\"ce16243c-f2c3-4abc-a2c9-702df174b630\",\"name\":\"APIKEY_USER\",\"ref\":\"apikey.ptb@yard.nl\"},\"organization\":{\"id\":\"6e9ddea5-8479-42f3-a187-2b00d1e417f1\",\"name\":\"Yard PTB\",\"ref\":\"https:\\/\\/commongateway.nl\\/organizations\\/ptb.yard.organization.json\"},\"application\":{\"id\":null,\"name\":null,\"ref\":null},\"synchronizations\":null},\"type\":null,\"value\":null,\"id\":\"5e3dc7b7-7019-417b-ad8c-ad03b71f316c\"}}},{\"_id\":\"13974d4e-d1aa-4d11-8a6f-0d79c15c38ec\",\"_self\":{\"id\":\"13974d4e-d1aa-4d11-8a6f-0d79c15c38ec\",\"name\":\"Aanvullingen\",\"self\":\"\\/api\\/kic\\/v1\\/taken\\/13974d4e-d1aa-4d11-8a6f-0d79c15c38ec\",\"schema\":{\"id\":\"68f5a0c8-e2cd-4c54-b26f-33fbba5990b7\",\"name\":\"Taak\",\"ref\":\"https:\\/\\/commongateway.nl\\/klant.taak.schema.json\"},\"level\":1,\"dateCreated\":\"2024-10-07T12:07:40+00:00\",\"dateModified\":\"2024-10-07T12:07:40+00:00\",\"dateDeleted\":null,\"database\":{\"id\":\"237259d4-c94a-43ca-b8df-c5638a138640\",\"name\":\"Acc-PTB-Yard\",\"ref\":\"https:\\/\\/commongateway.nl\\/databases\\/ptb.yard.database.json\"},\"owner\":{\"id\":\"ce16243c-f2c3-4abc-a2c9-702df174b630\",\"name\":\"APIKEY_USER\",\"ref\":\"apikey.ptb@yard.nl\"},\"organization\":{\"id\":\"6e9ddea5-8479-42f3-a187-2b00d1e417f1\",\"name\":\"Yard PTB\",\"ref\":\"https:\\/\\/commongateway.nl\\/organizations\\/ptb.yard.organization.json\"},\"application\":{\"id\":null,\"name\":null,\"ref\":null},\"synchronizations\":null},\"id\":\"13974d4e-d1aa-4d11-8a6f-0d79c15c38ec\",\"type\":null,\"url\":null,\"data\":{\"documentTypeUrl\":\"https:\\/\\/catalogi.preprod-rx-services.nl\\/api\\/v1\\/informatieobjecttypen\\/01d46bcb-ad82-4195-91ab-1d3ef2645df2\"},\"zaak\":\"https:\\/\\/zaken.preprod-rx-services.nl\\/api\\/v1\\/zaken\\/5000acca-8561-4196-ba79-f5d7aacd8bac\",\"title\":\"Aanvullingen\",\"onderwerp\":\"Omgevingsvergunning kerkstraat 1\",\"toelichting\":\"Er ontbreken stukken\",\"status\":\"Open\",\"verloopdatum\":\"2024-10-31T15:00:00+01:00\",\"vervaldatum\":null,\"verzonden_data\":[],\"verwerker_taak_id\":null,\"extraData\":{\"leverancier\":\"rx-mission\"},\"actie\":\"\",\"identificatie\":null,\"betrokkenen\":[]},{\"_id\":\"29314397-c237-4947-8028-851a7e95aeba\",\"_self\":{\"id\":\"29314397-c237-4947-8028-851a7e95aeba\",\"name\":\"Test met Barry\",\"self\":\"\\/api\\/kic\\/v1\\/taken\\/29314397-c237-4947-8028-851a7e95aeba\",\"schema\":{\"id\":\"68f5a0c8-e2cd-4c54-b26f-33fbba5990b7\",\"name\":\"Taak\",\"ref\":\"https:\\/\\/commongateway.nl\\/klant.taak.schema.json\"},\"level\":1,\"dateCreated\":\"2024-10-10T08:15:44+00:00\",\"dateModified\":\"2024-10-10T08:16:07+00:00\",\"dateDeleted\":null,\"database\":{\"id\":\"237259d4-c94a-43ca-b8df-c5638a138640\",\"name\":\"Acc-PTB-Yard\",\"ref\":\"https:\\/\\/commongateway.nl\\/databases\\/ptb.yard.database.json\"},\"owner\":{\"id\":\"ce16243c-f2c3-4abc-a2c9-702df174b630\",\"name\":\"APIKEY_USER\",\"ref\":\"apikey.ptb@yard.nl\"},\"organization\":{\"id\":\"6e9ddea5-8479-42f3-a187-2b00d1e417f1\",\"name\":\"Yard PTB\",\"ref\":\"https:\\/\\/commongateway.nl\\/organizations\\/ptb.yard.organization.json\"},\"application\":{\"id\":null,\"name\":null,\"ref\":null},\"synchronizations\":[{\"id\":\"67fc507f-0585-45f3-9972-c4a9ba2df8b8\",\"source\":{\"id\":\"7a831a12-981d-42e5-a800-9feb6b0452d0\",\"ref\":\"https:\\/\\/development.zaaksysteem.nl\\/source\\/gouda.zaaksysteemv2.source.json\",\"name\":\"Gouda zaaksysteem v2\",\"description\":\"Gouda zaaksysteem v2 api\",\"location\":\"https:\\/\\/d3567706-282c-4ed7-a6fd-2ddf1f504760.bus.koppel.app\\/zs\\/api\\/v2\"},\"endpoint\":\"\\/cm\\/task\\/get_task_list?filter[relationships.case.id]=47f394ea-cd71-4269-af97-a81e47407138\",\"sourceId\":\"e0c90220-5b7f-40c8-9040-edf6cc2dafa4\",\"dateCreated\":\"2024-10-10T08:15:44+00:00\",\"dateModified\":\"2024-10-10T08:16:07+00:00\",\"lastChecked\":\"2024-10-10T08:16:07+00:00\",\"lastSynced\":\"2024-10-10T08:16:07+00:00\",\"sourceLastChanged\":null}]},\"id\":\"29314397-c237-4947-8028-851a7e95aeba\",\"type\":\"https:\\/\\/development.zaaksysteem.nl\\/apidocs\\/?urls.primaryName=API+v2+-+Case+Management#\\/Tasks\\/get_task_list\",\"url\":null,\"data\":[],\"zaak\":null,\"title\":\"Test met Barry\",\"onderwerp\":\"Test met Barry\",\"toelichting\":\"\",\"status\":\"open\",\"verloopdatum\":\"2024-10-11\",\"vervaldatum\":\"2024-10-11\",\"verzonden_data\":[],\"verwerker_taak_id\":null,\"extraData\":[],\"actie\":null,\"identificatie\":null,\"betrokkenen\":[]},{\"_id\":\"84210286-6f1e-4a76-bee7-f980ba4fd1ca\",\"_self\":{\"id\":\"84210286-6f1e-4a76-bee7-f980ba4fd1ca\",\"name\":\"Test barry 2\",\"self\":\"\\/api\\/kic\\/v1\\/taken\\/84210286-6f1e-4a76-bee7-f980ba4fd1ca\",\"schema\":{\"id\":\"68f5a0c8-e2cd-4c54-b26f-33fbba5990b7\",\"name\":\"Taak\",\"ref\":\"https:\\/\\/commongateway.nl\\/klant.taak.schema.json\"},\"level\":1,\"dateCreated\":\"2024-10-10T08:18:48+00:00\",\"dateModified\":\"2024-10-10T08:19:13+00:00\",\"dateDeleted\":null,\"database\":{\"id\":\"237259d4-c94a-43ca-b8df-c5638a138640\",\"name\":\"Acc-PTB-Yard\",\"ref\":\"https:\\/\\/commongateway.nl\\/databases\\/ptb.yard.database.json\"},\"owner\":{\"id\":\"ce16243c-f2c3-4abc-a2c9-702df174b630\",\"name\":\"APIKEY_USER\",\"ref\":\"apikey.ptb@yard.nl\"},\"organization\":{\"id\":\"6e9ddea5-8479-42f3-a187-2b00d1e417f1\",\"name\":\"Yard PTB\",\"ref\":\"https:\\/\\/commongateway.nl\\/organizations\\/ptb.yard.organization.json\"},\"application\":{\"id\":null,\"name\":null,\"ref\":null},\"synchronizations\":[{\"id\":\"77dd6937-b360-467a-a6b8-62e74c9593e7\",\"source\":{\"id\":\"7a831a12-981d-42e5-a800-9feb6b0452d0\",\"ref\":\"https:\\/\\/development.zaaksysteem.nl\\/source\\/gouda.zaaksysteemv2.source.json\",\"name\":\"Gouda zaaksysteem v2\",\"description\":\"Gouda zaaksysteem v2 api\",\"location\":\"https:\\/\\/d3567706-282c-4ed7-a6fd-2ddf1f504760.bus.koppel.app\\/zs\\/api\\/v2\"},\"endpoint\":\"\\/cm\\/task\\/get_task_list?filter[relationships.case.id]=47f394ea-cd71-4269-af97-a81e47407138\",\"sourceId\":\"7ef42b49-23d2-4522-ae86-0c067cf94bd1\",\"dateCreated\":\"2024-10-10T08:18:48+00:00\",\"dateModified\":\"2024-10-10T08:19:13+00:00\",\"lastChecked\":\"2024-10-10T08:19:13+00:00\",\"lastSynced\":\"2024-10-10T08:19:13+00:00\",\"sourceLastChanged\":null}]},\"id\":\"84210286-6f1e-4a76-bee7-f980ba4fd1ca\",\"type\":\"https:\\/\\/development.zaaksysteem.nl\\/apidocs\\/?urls.primaryName=API+v2+-+Case+Management#\\/Tasks\\/get_task_list\",\"url\":null,\"data\":[],\"zaak\":null,\"title\":\"Test barry 2\",\"onderwerp\":\"Test barry 2\",\"toelichting\":\"dit is een tekst voor extra uitleg\\n\",\"status\":\"open\",\"verloopdatum\":null,\"vervaldatum\":null,\"verzonden_data\":[],\"verwerker_taak_id\":null,\"extraData\":[],\"actie\":null,\"identificatie\":null,\"betrokkenen\":[]},{\"_id\":\"498595a4-ad72-46d8-940c-5e5bac65da5b\",\"_self\":{\"id\":\"498595a4-ad72-46d8-940c-5e5bac65da5b\",\"name\":\"Dit is een test\",\"self\":\"\\/api\\/kic\\/v1\\/taken\\/498595a4-ad72-46d8-940c-5e5bac65da5b\",\"schema\":{\"id\":\"68f5a0c8-e2cd-4c54-b26f-33fbba5990b7\",\"name\":\"Taak\",\"ref\":\"https:\\/\\/commongateway.nl\\/klant.taak.schema.json\"},\"level\":1,\"dateCreated\":\"2024-10-10T09:26:53+00:00\",\"dateModified\":\"2024-10-10T09:27:14+00:00\",\"dateDeleted\":null,\"database\":{\"id\":\"237259d4-c94a-43ca-b8df-c5638a138640\",\"name\":\"Acc-PTB-Yard\",\"ref\":\"https:\\/\\/commongateway.nl\\/databases\\/ptb.yard.database.json\"},\"owner\":{\"id\":\"ce16243c-f2c3-4abc-a2c9-702df174b630\",\"name\":\"APIKEY_USER\",\"ref\":\"apikey.ptb@yard.nl\"},\"organization\":{\"id\":\"6e9ddea5-8479-42f3-a187-2b00d1e417f1\",\"name\":\"Yard PTB\",\"ref\":\"https:\\/\\/commongateway.nl\\/organizations\\/ptb.yard.organization.json\"},\"application\":{\"id\":null,\"name\":null,\"ref\":null},\"synchronizations\":[{\"id\":\"e001caf3-1088-4d0d-aa82-561adad620f2\",\"source\":{\"id\":\"7a831a12-981d-42e5-a800-9feb6b0452d0\",\"ref\":\"https:\\/\\/development.zaaksysteem.nl\\/source\\/gouda.zaaksysteemv2.source.json\",\"name\":\"Gouda zaaksysteem v2\",\"description\":\"Gouda zaaksysteem v2 api\",\"location\":\"https:\\/\\/d3567706-282c-4ed7-a6fd-2ddf1f504760.bus.koppel.app\\/zs\\/api\\/v2\"},\"endpoint\":\"\\/cm\\/task\\/get_task_list?filter[relationships.case.id]=e4a171ea-23c9-447a-9aba-2296d6a67f83\",\"sourceId\":\"a5a1c27b-20ad-4fd5-80e8-5118fc8758c4\",\"dateCreated\":\"2024-10-10T09:26:53+00:00\",\"dateModified\":\"2024-10-10T09:27:14+00:00\",\"lastChecked\":\"2024-10-10T09:27:14+00:00\",\"lastSynced\":\"2024-10-10T09:27:14+00:00\",\"sourceLastChanged\":null}]},\"id\":\"498595a4-ad72-46d8-940c-5e5bac65da5b\",\"type\":\"https:\\/\\/development.zaaksysteem.nl\\/apidocs\\/?urls.primaryName=API+v2+-+Case+Management#\\/Tasks\\/get_task_list\",\"url\":null,\"data\":[],\"zaak\":null,\"title\":\"Dit is een test\",\"onderwerp\":\"Dit is een test\",\"toelichting\":\"Voor Barry: 11:26\",\"status\":\"open\",\"verloopdatum\":\"2024-10-24\",\"vervaldatum\":\"2024-10-24\",\"verzonden_data\":[],\"verwerker_taak_id\":null,\"extraData\":[],\"actie\":null,\"identificatie\":null,\"betrokkenen\":[]}],\"count\":10,\"limit\":30,\"total\":10,\"offset\":0,\"page\":1,\"pages\":1}"
+        },
+        "client_ip": "192.168.178.1"
+    },
+    {
+        "Endpoint": "/api/kic/v1/taken",
+        "route_id": "534958148432167618",
+        "Request": "GET /api/kic/v1/taken HTTP/1.1",
+        "Time_of_request": "2024-10-09T13:06:59+00:00",
+        "service_id": "534957599146115778",
+        "Consumer": "yaseen",
+        "request": {
+          "results": [
+            {
+              "_id": "4a90a330-dbec-45b4-b6f9-66ffc5f9189f",
+              "_self": {
+                "id": "4a90a330-dbec-45b4-b6f9-66ffc5f9189f",
+                "name": "Aanvraag Ingediend",
+                "self": "/api/kic/v1/taken/4a90a330-dbec-45b4-b6f9-66ffc5f9189f",
+                "schema": {
+                  "id": "68f5a0c8-e2cd-4c54-b26f-33fbba5990b7",
+                  "name": "Taak",
+                  "ref": "https://commongateway.nl/klant.taak.schema.json"
+                },
+                "level": 1,
+                "dateCreated": "2024-09-26T14:37:58+00:00",
+                "dateModified": "2024-09-30T14:15:13+00:00",
+                "dateDeleted": null,
+                "database": {
+                  "id": "237259d4-c94a-43ca-b8df-c5638a138640",
+                  "name": "Acc-PTB-Yard",
+                  "ref": "https://commongateway.nl/databases/ptb.yard.database.json"
+                },
+                "owner": {
+                  "id": "ce16243c-f2c3-4abc-a2c9-702df174b630",
+                  "name": "APIKEY_USER",
+                  "ref": "apikey.ptb@yard.nl"
+                },
+                "organization": {
+                  "id": "6e9ddea5-8479-42f3-a187-2b00d1e417f1",
+                  "name": "Yard PTB",
+                  "ref": "https://commongateway.nl/organizations/ptb.yard.organization.json"
+                },
+                "application": {
+                  "id": null,
+                  "name": null,
+                  "ref": null
+                },
+                "synchronizations": null
+              },
+              "id": "4a90a330-dbec-45b4-b6f9-66ffc5f9189f",
+              "type": "https://commongateway.nl/taak/type",
+              "url": null,
+              "data": {
+                "documentTypeUrl": "https://api.accept.common-gateway.commonground.nu/api/ztc/v1/informatieobjecttypen/46839882-8575-4c59-9c5a-56d3147271b5"
+              },
+              "zaak": "https://api.accept.common-gateway.commonground.nu/api/zrc/v1/zaken/f5d1c9b7-e3a9-485d-98cb-1667e1d0537c",
+              "title": "Aanvraag Ingediend",
+              "onderwerp": "Bouwvergunning",
+              "toelichting": "De taak betreft de aanvraag van een bouwvergunning voor een woning.",
+              "status": "open",
+              "verloopdatum": "2024-10-10T14:00:00Z",
+              "vervaldatum": "2024-12-10T14:00:00Z",
+              "verzonden_data": [
+                "document1.pdf",
+                "document2.pdf"
+              ],
+              "verwerker_taak_id": "650e8400-e29b-41d4-a716-446655440000",
+              "extraData": {
+                "leverancier": "Xxllnc"
+              },
+              "actie": "/api/objects/be0db76e-ff34-4f3a-8abf-506df9c67d4d",
+              "identificatie": "/api/objects/20ef5594-f2a9-4bb7-b196-acd3dd0cabd3",
+              "betrokkenen": [
+                "/api/objects/9229b26d-9124-43ab-8473-995a7e31bffc"
+              ],
+              "embedded": {
+                "actie": {
+                  "_self": {
+                    "id": "be0db76e-ff34-4f3a-8abf-506df9c67d4d",
+                    "name": "No name could be established for this entity",
+                    "self": "/api/objects/be0db76e-ff34-4f3a-8abf-506df9c67d4d",
+                    "schema": {
+                      "id": "b8c0ab8b-f4e3-4ab3-9b99-de10e01bad5a",
+                      "name": "TaakFormulier",
+                      "ref": "https://commongateway.nl/klant.taak.formulier.schema.json"
+                    },
+                    "level": 2,
+                    "dateCreated": "2024-09-26T14:37:58+00:00",
+                    "dateModified": "2024-09-30T13:10:41+00:00",
+                    "dateDeleted": null,
+                    "database": {
+                      "id": "237259d4-c94a-43ca-b8df-c5638a138640",
+                      "name": "Acc-PTB-Yard",
+                      "ref": "https://commongateway.nl/databases/ptb.yard.database.json"
+                    },
+                    "owner": {
+                      "id": "ce16243c-f2c3-4abc-a2c9-702df174b630",
+                      "name": "APIKEY_USER",
+                      "ref": "apikey.ptb@yard.nl"
+                    },
+                    "organization": {
+                      "id": "6e9ddea5-8479-42f3-a187-2b00d1e417f1",
+                      "name": "Yard PTB",
+                      "ref": "https://commongateway.nl/organizations/ptb.yard.organization.json"
+                    },
+                    "application": {
+                      "id": null,
+                      "name": null,
+                      "ref": null
+                    },
+                    "synchronizations": null
+                  },
+                  "type": "InformatieObjectType",
+                  "value": "https://api.accept.common-gateway.commonground.nu/api/ztc/v1/informatieobjecttypen/46839882-8575-4c59-9c5a-56d3147271b5",
+                  "id": "be0db76e-ff34-4f3a-8abf-506df9c67d4d"
+                },
+                "identificatie": {
+                  "_self": {
+                    "id": "20ef5594-f2a9-4bb7-b196-acd3dd0cabd3",
+                    "name": "No name could be established for this entity",
+                    "self": "/api/objects/20ef5594-f2a9-4bb7-b196-acd3dd0cabd3",
+                    "schema": {
+                      "id": "70e7ec17-93ab-46de-82d0-a47e623a3695",
+                      "name": "TaakIdentificatie",
+                      "ref": "https://commongateway.nl/klant.taak.identificatie.schema.json"
+                    },
+                    "level": 2,
+                    "dateCreated": "2024-09-26T14:37:58+00:00",
+                    "dateModified": "2024-09-26T14:37:59+00:00",
+                    "dateDeleted": null,
+                    "database": {
+                      "id": "237259d4-c94a-43ca-b8df-c5638a138640",
+                      "name": "Acc-PTB-Yard",
+                      "ref": "https://commongateway.nl/databases/ptb.yard.database.json"
+                    },
+                    "owner": {
+                      "id": "ce16243c-f2c3-4abc-a2c9-702df174b630",
+                      "name": "APIKEY_USER",
+                      "ref": "apikey.ptb@yard.nl"
+                    },
+                    "organization": {
+                      "id": "6e9ddea5-8479-42f3-a187-2b00d1e417f1",
+                      "name": "Yard PTB",
+                      "ref": "https://commongateway.nl/organizations/ptb.yard.organization.json"
+                    },
+                    "application": {
+                      "id": null,
+                      "name": null,
+                      "ref": null
+                    },
+                    "synchronizations": null
+                  },
+                  "type": "id",
+                  "value": "123",
+                  "id": "20ef5594-f2a9-4bb7-b196-acd3dd0cabd3"
+                },
+                "betrokkenen": [
+                  {
+                    "_self": {
+                      "id": "9229b26d-9124-43ab-8473-995a7e31bffc",
+                      "name": "No name could be established for this entity",
+                      "self": "/api/objects/9229b26d-9124-43ab-8473-995a7e31bffc",
+                      "schema": {
+                        "id": "db4f31bf-2782-4f0e-aead-c0c51c972ec7",
+                        "name": "Betrokenne",
+                        "ref": "https://commongateway.nl/klant.taak.betrokkene.schema.json"
+                      },
+                      "level": 2,
+                      "dateCreated": "2024-09-26T14:37:59+00:00",
+                      "dateModified": "2024-09-26T14:37:59+00:00",
+                      "dateDeleted": null,
+                      "database": {
+                        "id": "237259d4-c94a-43ca-b8df-c5638a138640",
+                        "name": "Acc-PTB-Yard",
+                        "ref": "https://commongateway.nl/databases/ptb.yard.database.json"
+                      },
+                      "owner": {
+                        "id": "ce16243c-f2c3-4abc-a2c9-702df174b630",
+                        "name": "APIKEY_USER",
+                        "ref": "apikey.ptb@yard.nl"
+                      },
+                      "organization": {
+                        "id": "6e9ddea5-8479-42f3-a187-2b00d1e417f1",
+                        "name": "Yard PTB",
+                        "ref": "https://commongateway.nl/organizations/ptb.yard.organization.json"
+                      },
+                      "application": {
+                        "id": null,
+                        "name": null,
+                        "ref": null
+                      },
+                      "synchronizations": null
+                    },
+                    "betrokkeneType": "natuurlijk_persoon",
+                    "rolType": "aanvrager",
+                    "betrokkene": "/api/objects/61d670e2-0906-4191-9e7c-5625c5df4c20",
+                    "partij": null,
+                    "embedded": {
+                      "betrokkene": {
+                        "_self": {
+                          "id": "61d670e2-0906-4191-9e7c-5625c5df4c20",
+                          "name": "John Doe",
+                          "self": "/api/objects/61d670e2-0906-4191-9e7c-5625c5df4c20",
+                          "schema": {
+                            "id": "b9674ef2-02df-493b-aa45-b18d4a7b598d",
+                            "name": "BetrokenneMedewerkerOfPersoon",
+                            "ref": "https://commongateway.nl/klant.taak.betrokkeneMedewerkerOfPersoon.schema.json"
+                          },
+                          "level": 3,
+                          "dateCreated": "2024-09-26T14:37:59+00:00",
+                          "dateModified": "2024-09-26T14:37:59+00:00",
+                          "dateDeleted": null,
+                          "database": {
+                            "id": "237259d4-c94a-43ca-b8df-c5638a138640",
+                            "name": "Acc-PTB-Yard",
+                            "ref": "https://commongateway.nl/databases/ptb.yard.database.json"
+                          },
+                          "owner": {
+                            "id": "ce16243c-f2c3-4abc-a2c9-702df174b630",
+                            "name": "APIKEY_USER",
+                            "ref": "apikey.ptb@yard.nl"
+                          },
+                          "organization": {
+                            "id": "6e9ddea5-8479-42f3-a187-2b00d1e417f1",
+                            "name": "Yard PTB",
+                            "ref": "https://commongateway.nl/organizations/ptb.yard.organization.json"
+                          },
+                          "application": {
+                            "id": null,
+                            "name": null,
+                            "ref": null
+                          },
+                          "synchronizations": null
+                        },
+                        "naam": "John Doe",
+                        "medewerkerIdentificatie": "med123",
+                        "inpBsn": "900198424"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "_id": "497a23f4-ad14-4194-9c19-d456cb58865c",
+              "_self": {
+                "id": "497a23f4-ad14-4194-9c19-d456cb58865c",
+                "name": "Aanvullingen",
+                "self": "/api/kic/v1/taken/497a23f4-ad14-4194-9c19-d456cb58865c",
+                "schema": {
+                  "id": "68f5a0c8-e2cd-4c54-b26f-33fbba5990b7",
+                  "name": "Taak",
+                  "ref": "https://commongateway.nl/klant.taak.schema.json"
+                },
+                "level": 1,
+                "dateCreated": "2024-10-07T09:38:10+00:00",
+                "dateModified": "2024-10-07T09:38:11+00:00",
+                "dateDeleted": null,
+                "database": {
+                  "id": "237259d4-c94a-43ca-b8df-c5638a138640",
+                  "name": "Acc-PTB-Yard",
+                  "ref": "https://commongateway.nl/databases/ptb.yard.database.json"
+                },
+                "owner": {
+                  "id": "ce16243c-f2c3-4abc-a2c9-702df174b630",
+                  "name": "APIKEY_USER",
+                  "ref": "apikey.ptb@yard.nl"
+                },
+                "organization": {
+                  "id": "6e9ddea5-8479-42f3-a187-2b00d1e417f1",
+                  "name": "Yard PTB",
+                  "ref": "https://commongateway.nl/organizations/ptb.yard.organization.json"
+                },
+                "application": {
+                  "id": null,
+                  "name": null,
+                  "ref": null
+                },
+                "synchronizations": null
+              },
+              "id": "497a23f4-ad14-4194-9c19-d456cb58865c",
+              "type": "https://commongateway.nl/taak/type",
+              "url": null,
+              "data": {
+                "documentTypeUrl": "https://api.accept.common-gateway.commonground.nu/api/ztc/v1/informatieobjecttypen/46839882-8575-4c59-9c5a-56d3147271b5"
+              },
+              "zaak": "https://api.accept.common-gateway.commonground.nu/api/zrc/v1/zaken/f5d1c9b7-e3a9-485d-98cb-1667e1d0537c",
+              "title": "Aanvullingen",
+              "onderwerp": "Omgevingsvergunning kerkstraat 1",
+              "toelichting": "Er ontbreken stukken",
+              "status": "open",
+              "verloopdatum": "2024-10-31T14:00:00Z",
+              "vervaldatum": "2024-12-10T14:00:00Z",
+              "verzonden_data": [],
+              "verwerker_taak_id": "650e8400-e29b-41d4-a716-446655440000",
+              "extraData": {
+                "leverancier": "rx-mission"
+              },
+              "actie": "/api/objects/b0d3a396-6f25-4443-8608-6cda8712e6d5",
+              "identificatie": null,
+              "betrokkenen": [],
+              "embedded": {
+                "actie": {
+                  "_self": {
+                    "id": "b0d3a396-6f25-4443-8608-6cda8712e6d5",
+                    "name": "No name could be established for this entity",
+                    "self": "/api/objects/b0d3a396-6f25-4443-8608-6cda8712e6d5",
+                    "schema": {
+                      "id": "b8c0ab8b-f4e3-4ab3-9b99-de10e01bad5a",
+                      "name": "TaakFormulier",
+                      "ref": "https://commongateway.nl/klant.taak.formulier.schema.json"
+                    },
+                    "level": 2,
+                    "dateCreated": "2024-10-07T09:38:10+00:00",
+                    "dateModified": "2024-10-07T09:38:11+00:00",
+                    "dateDeleted": null,
+                    "database": {
+                      "id": "237259d4-c94a-43ca-b8df-c5638a138640",
+                      "name": "Acc-PTB-Yard",
+                      "ref": "https://commongateway.nl/databases/ptb.yard.database.json"
+                    },
+                    "owner": {
+                      "id": "ce16243c-f2c3-4abc-a2c9-702df174b630",
+                      "name": "APIKEY_USER",
+                      "ref": "apikey.ptb@yard.nl"
+                    },
+                    "organization": {
+                      "id": "6e9ddea5-8479-42f3-a187-2b00d1e417f1",
+                      "name": "Yard PTB",
+                      "ref": "https://commongateway.nl/organizations/ptb.yard.organization.json"
+                    },
+                    "application": {
+                      "id": null,
+                      "name": null,
+                      "ref": null
+                    },
+                    "synchronizations": null
+                  },
+                  "type": null,
+                  "value": null,
+                  "id": "b0d3a396-6f25-4443-8608-6cda8712e6d5"
+                }
+              }
+            },
+            {
+              "_id": "6bacee3a-2db5-4953-8c2f-7c5b9df34afa",
+              "_self": {
+                "id": "6bacee3a-2db5-4953-8c2f-7c5b9df34afa",
+                "name": "Aanvullingen",
+                "self": "/api/kic/v1/taken/6bacee3a-2db5-4953-8c2f-7c5b9df34afa",
+                "schema": {
+                  "id": "68f5a0c8-e2cd-4c54-b26f-33fbba5990b7",
+                  "name": "Taak",
+                  "ref": "https://commongateway.nl/klant.taak.schema.json"
+                },
+                "level": 1,
+                "dateCreated": "2024-10-07T09:44:24+00:00",
+                "dateModified": "2024-10-07T09:44:25+00:00",
+                "dateDeleted": null,
+                "database": {
+                  "id": "237259d4-c94a-43ca-b8df-c5638a138640",
+                  "name": "Acc-PTB-Yard",
+                  "ref": "https://commongateway.nl/databases/ptb.yard.database.json"
+                },
+                "owner": {
+                  "id": "ce16243c-f2c3-4abc-a2c9-702df174b630",
+                  "name": "APIKEY_USER",
+                  "ref": "apikey.ptb@yard.nl"
+                },
+                "organization": {
+                  "id": "6e9ddea5-8479-42f3-a187-2b00d1e417f1",
+                  "name": "Yard PTB",
+                  "ref": "https://commongateway.nl/organizations/ptb.yard.organization.json"
+                },
+                "application": {
+                  "id": null,
+                  "name": null,
+                  "ref": null
+                },
+                "synchronizations": null
+              },
+              "id": "6bacee3a-2db5-4953-8c2f-7c5b9df34afa",
+              "type": "https://commongateway.nl/taak/type",
+              "url": null,
+              "data": {
+                "documentTypeUrl": "https://catalogi.preprod-rx-services.nl/api/v1/informatieobjecttypen/01d46bcb-ad82-4195-91ab-1d3ef2645df2"
+              },
+              "zaak": "https://zaken.preprod-rx-services.nl/api/v1/zaken/5000acca-8561-4196-ba79-f5d7aacd8bac",
+              "title": "Aanvullingen",
+              "onderwerp": "Omgevingsvergunning kerkstraat 1",
+              "toelichting": "Er ontbreken stukken",
+              "status": "open",
+              "verloopdatum": "2024-10-31T14:00:00Z",
+              "vervaldatum": "2024-12-10T14:00:00Z",
+              "verzonden_data": [],
+              "verwerker_taak_id": "650e8400-e29b-41d4-a716-446655440000",
+              "extraData": {
+                "leverancier": "rx-mission"
+              },
+              "actie": "/api/objects/48dd39b3-a836-4dba-9898-d418f611873f",
+              "identificatie": null,
+              "betrokkenen": [],
+              "embedded": {
+                "actie": {
+                  "_self": {
+                    "id": "48dd39b3-a836-4dba-9898-d418f611873f",
+                    "name": "No name could be established for this entity",
+                    "self": "/api/objects/48dd39b3-a836-4dba-9898-d418f611873f",
+                    "schema": {
+                      "id": "b8c0ab8b-f4e3-4ab3-9b99-de10e01bad5a",
+                      "name": "TaakFormulier",
+                      "ref": "https://commongateway.nl/klant.taak.formulier.schema.json"
+                    },
+                    "level": 2,
+                    "dateCreated": "2024-10-07T09:44:25+00:00",
+                    "dateModified": "2024-10-07T09:44:25+00:00",
+                    "dateDeleted": null,
+                    "database": {
+                      "id": "237259d4-c94a-43ca-b8df-c5638a138640",
+                      "name": "Acc-PTB-Yard",
+                      "ref": "https://commongateway.nl/databases/ptb.yard.database.json"
+                    },
+                    "owner": {
+                      "id": "ce16243c-f2c3-4abc-a2c9-702df174b630",
+                      "name": "APIKEY_USER",
+                      "ref": "apikey.ptb@yard.nl"
+                    },
+                    "organization": {
+                      "id": "6e9ddea5-8479-42f3-a187-2b00d1e417f1",
+                      "name": "Yard PTB",
+                      "ref": "https://commongateway.nl/organizations/ptb.yard.organization.json"
+                    },
+                    "application": {
+                      "id": null,
+                      "name": null,
+                      "ref": null
+                    },
+                    "synchronizations": null
+                  },
+                  "type": null,
+                  "value": null,
+                  "id": "48dd39b3-a836-4dba-9898-d418f611873f"
+                }
+              }
+            },
+            {
+              "_id": "6d9bf0c6-ed9c-43fe-ba37-ce57fecbd061",
+              "_self": {
+                "id": "6d9bf0c6-ed9c-43fe-ba37-ce57fecbd061",
+                "name": "Aanvullingen",
+                "self": "/api/kic/v1/taken/6d9bf0c6-ed9c-43fe-ba37-ce57fecbd061",
+                "schema": {
+                  "id": "68f5a0c8-e2cd-4c54-b26f-33fbba5990b7",
+                  "name": "Taak",
+                  "ref": "https://commongateway.nl/klant.taak.schema.json"
+                },
+                "level": 1,
+                "dateCreated": "2024-10-07T09:44:39+00:00",
+                "dateModified": "2024-10-07T09:44:40+00:00",
+                "dateDeleted": null,
+                "database": {
+                  "id": "237259d4-c94a-43ca-b8df-c5638a138640",
+                  "name": "Acc-PTB-Yard",
+                  "ref": "https://commongateway.nl/databases/ptb.yard.database.json"
+                },
+                "owner": {
+                  "id": "ce16243c-f2c3-4abc-a2c9-702df174b630",
+                  "name": "APIKEY_USER",
+                  "ref": "apikey.ptb@yard.nl"
+                },
+                "organization": {
+                  "id": "6e9ddea5-8479-42f3-a187-2b00d1e417f1",
+                  "name": "Yard PTB",
+                  "ref": "https://commongateway.nl/organizations/ptb.yard.organization.json"
+                },
+                "application": {
+                  "id": null,
+                  "name": null,
+                  "ref": null
+                },
+                "synchronizations": null
+              },
+              "id": "6d9bf0c6-ed9c-43fe-ba37-ce57fecbd061",
+              "type": "https://commongateway.nl/taak/type",
+              "url": null,
+              "data": {
+                "documentTypeUrl": "https://catalogi.preprod-rx-services.nl/api/v1/informatieobjecttypen/01d46bcb-ad82-4195-91ab-1d3ef2645df2"
+              },
+              "zaak": "https://zaken.preprod-rx-services.nl/api/v1/zaken/5000acca-8561-4196-ba79-f5d7aacd8bac",
+              "title": "Aanvullingen",
+              "onderwerp": "Omgevingsvergunning kerkstraat 1",
+              "toelichting": "Er ontbreken stukken",
+              "status": "open",
+              "verloopdatum": "2024-10-31T14:00:00Z",
+              "vervaldatum": "2024-12-10T14:00:00Z",
+              "verzonden_data": [],
+              "verwerker_taak_id": null,
+              "extraData": {
+                "leverancier": "rx-mission"
+              },
+              "actie": "/api/objects/60c7ee34-289d-4ba3-9d9f-60a51fc52c11",
+              "identificatie": null,
+              "betrokkenen": [],
+              "embedded": {
+                "actie": {
+                  "_self": {
+                    "id": "60c7ee34-289d-4ba3-9d9f-60a51fc52c11",
+                    "name": "No name could be established for this entity",
+                    "self": "/api/objects/60c7ee34-289d-4ba3-9d9f-60a51fc52c11",
+                    "schema": {
+                      "id": "b8c0ab8b-f4e3-4ab3-9b99-de10e01bad5a",
+                      "name": "TaakFormulier",
+                      "ref": "https://commongateway.nl/klant.taak.formulier.schema.json"
+                    },
+                    "level": 2,
+                    "dateCreated": "2024-10-07T09:44:39+00:00",
+                    "dateModified": "2024-10-07T09:44:40+00:00",
+                    "dateDeleted": null,
+                    "database": {
+                      "id": "237259d4-c94a-43ca-b8df-c5638a138640",
+                      "name": "Acc-PTB-Yard",
+                      "ref": "https://commongateway.nl/databases/ptb.yard.database.json"
+                    },
+                    "owner": {
+                      "id": "ce16243c-f2c3-4abc-a2c9-702df174b630",
+                      "name": "APIKEY_USER",
+                      "ref": "apikey.ptb@yard.nl"
+                    },
+                    "organization": {
+                      "id": "6e9ddea5-8479-42f3-a187-2b00d1e417f1",
+                      "name": "Yard PTB",
+                      "ref": "https://commongateway.nl/organizations/ptb.yard.organization.json"
+                    },
+                    "application": {
+                      "id": null,
+                      "name": null,
+                      "ref": null
+                    },
+                    "synchronizations": null
+                  },
+                  "type": null,
+                  "value": null,
+                  "id": "60c7ee34-289d-4ba3-9d9f-60a51fc52c11"
+                }
+              }
+            },
+            {
+              "_id": "305df11b-c098-4675-aa4c-8132b41fa005",
+              "_self": {
+                "id": "305df11b-c098-4675-aa4c-8132b41fa005",
+                "name": "Aanvullingen",
+                "self": "/api/kic/v1/taken/305df11b-c098-4675-aa4c-8132b41fa005",
+                "schema": {
+                  "id": "68f5a0c8-e2cd-4c54-b26f-33fbba5990b7",
+                  "name": "Taak",
+                  "ref": "https://commongateway.nl/klant.taak.schema.json"
+                },
+                "level": 1,
+                "dateCreated": "2024-10-07T10:02:49+00:00",
+                "dateModified": "2024-10-07T10:02:50+00:00",
+                "dateDeleted": null,
+                "database": {
+                  "id": "237259d4-c94a-43ca-b8df-c5638a138640",
+                  "name": "Acc-PTB-Yard",
+                  "ref": "https://commongateway.nl/databases/ptb.yard.database.json"
+                },
+                "owner": {
+                  "id": "ce16243c-f2c3-4abc-a2c9-702df174b630",
+                  "name": "APIKEY_USER",
+                  "ref": "apikey.ptb@yard.nl"
+                },
+                "organization": {
+                  "id": "6e9ddea5-8479-42f3-a187-2b00d1e417f1",
+                  "name": "Yard PTB",
+                  "ref": "https://commongateway.nl/organizations/ptb.yard.organization.json"
+                },
+                "application": {
+                  "id": null,
+                  "name": null,
+                  "ref": null
+                },
+                "synchronizations": null
+              },
+              "id": "305df11b-c098-4675-aa4c-8132b41fa005",
+              "type": "https://commongateway.nl/taak/type",
+              "url": null,
+              "data": {
+                "documentTypeUrl": "https://catalogi.preprod-rx-services.nl/api/v1/informatieobjecttypen/01d46bcb-ad82-4195-91ab-1d3ef2645df2"
+              },
+              "zaak": "https://zaken.preprod-rx-services.nl/api/v1/zaken/5000acca-8561-4196-ba79-f5d7aacd8bac",
+              "title": "Aanvullingen",
+              "onderwerp": "Omgevingsvergunning kerkstraat 1",
+              "toelichting": "Er ontbreken stukken",
+              "status": "open",
+              "verloopdatum": "2024-10-31T14:00:00Z",
+              "vervaldatum": "2024-12-10T14:00:00Z",
+              "verzonden_data": [],
+              "verwerker_taak_id": null,
+              "extraData": {
+                "leverancier": "rx-mission"
+              },
+              "actie": "/api/objects/b96c8e85-19f9-4e79-a2d4-530a7218650e",
+              "identificatie": null,
+              "betrokkenen": [],
+              "embedded": {
+                "actie": {
+                  "_self": {
+                    "id": "b96c8e85-19f9-4e79-a2d4-530a7218650e",
+                    "name": "No name could be established for this entity",
+                    "self": "/api/objects/b96c8e85-19f9-4e79-a2d4-530a7218650e",
+                    "schema": {
+                      "id": "b8c0ab8b-f4e3-4ab3-9b99-de10e01bad5a",
+                      "name": "TaakFormulier",
+                      "ref": "https://commongateway.nl/klant.taak.formulier.schema.json"
+                    },
+                    "level": 2,
+                    "dateCreated": "2024-10-07T10:02:49+00:00",
+                    "dateModified": "2024-10-07T10:02:50+00:00",
+                    "dateDeleted": null,
+                    "database": {
+                      "id": "237259d4-c94a-43ca-b8df-c5638a138640",
+                      "name": "Acc-PTB-Yard",
+                      "ref": "https://commongateway.nl/databases/ptb.yard.database.json"
+                    },
+                    "owner": {
+                      "id": "ce16243c-f2c3-4abc-a2c9-702df174b630",
+                      "name": "APIKEY_USER",
+                      "ref": "apikey.ptb@yard.nl"
+                    },
+                    "organization": {
+                      "id": "6e9ddea5-8479-42f3-a187-2b00d1e417f1",
+                      "name": "Yard PTB",
+                      "ref": "https://commongateway.nl/organizations/ptb.yard.organization.json"
+                    },
+                    "application": {
+                      "id": null,
+                      "name": null,
+                      "ref": null
+                    },
+                    "synchronizations": null
+                  },
+                  "type": null,
+                  "value": null,
+                  "id": "b96c8e85-19f9-4e79-a2d4-530a7218650e"
+                }
+              }
+            },
+            {
+              "_id": "c6b6f0e3-8aab-4b6a-8d0e-d9c10099f792",
+              "_self": {
+                "id": "c6b6f0e3-8aab-4b6a-8d0e-d9c10099f792",
+                "name": "Aanvullingen",
+                "self": "/api/kic/v1/taken/c6b6f0e3-8aab-4b6a-8d0e-d9c10099f792",
+                "schema": {
+                  "id": "68f5a0c8-e2cd-4c54-b26f-33fbba5990b7",
+                  "name": "Taak",
+                  "ref": "https://commongateway.nl/klant.taak.schema.json"
+                },
+                "level": 1,
+                "dateCreated": "2024-10-07T10:03:05+00:00",
+                "dateModified": "2024-10-07T10:03:05+00:00",
+                "dateDeleted": null,
+                "database": {
+                  "id": "237259d4-c94a-43ca-b8df-c5638a138640",
+                  "name": "Acc-PTB-Yard",
+                  "ref": "https://commongateway.nl/databases/ptb.yard.database.json"
+                },
+                "owner": {
+                  "id": "ce16243c-f2c3-4abc-a2c9-702df174b630",
+                  "name": "APIKEY_USER",
+                  "ref": "apikey.ptb@yard.nl"
+                },
+                "organization": {
+                  "id": "6e9ddea5-8479-42f3-a187-2b00d1e417f1",
+                  "name": "Yard PTB",
+                  "ref": "https://commongateway.nl/organizations/ptb.yard.organization.json"
+                },
+                "application": {
+                  "id": null,
+                  "name": null,
+                  "ref": null
+                },
+                "synchronizations": null
+              },
+              "id": "c6b6f0e3-8aab-4b6a-8d0e-d9c10099f792",
+              "type": null,
+              "url": null,
+              "data": {
+                "documentTypeUrl": "https://catalogi.preprod-rx-services.nl/api/v1/informatieobjecttypen/01d46bcb-ad82-4195-91ab-1d3ef2645df2"
+              },
+              "zaak": "https://zaken.preprod-rx-services.nl/api/v1/zaken/5000acca-8561-4196-ba79-f5d7aacd8bac",
+              "title": "Aanvullingen",
+              "onderwerp": "Omgevingsvergunning kerkstraat 1",
+              "toelichting": "Er ontbreken stukken",
+              "status": "open",
+              "verloopdatum": "2024-10-31T14:00:00Z",
+              "vervaldatum": "2024-12-10T14:00:00Z",
+              "verzonden_data": [],
+              "verwerker_taak_id": null,
+              "extraData": {
+                "leverancier": "rx-mission"
+              },
+              "actie": "/api/objects/5e3dc7b7-7019-417b-ad8c-ad03b71f316c",
+              "identificatie": null,
+              "betrokkenen": [],
+              "embedded": {
+                "actie": {
+                  "_self": {
+                    "id": "5e3dc7b7-7019-417b-ad8c-ad03b71f316c",
+                    "name": "No name could be established for this entity",
+                    "self": "/api/objects/5e3dc7b7-7019-417b-ad8c-ad03b71f316c",
+                    "schema": {
+                      "id": "b8c0ab8b-f4e3-4ab3-9b99-de10e01bad5a",
+                      "name": "TaakFormulier",
+                      "ref": "https://commongateway.nl/klant.taak.formulier.schema.json"
+                    },
+                    "level": 2,
+                    "dateCreated": "2024-10-07T10:03:05+00:00",
+                    "dateModified": "2024-10-07T10:03:05+00:00",
+                    "dateDeleted": null,
+                    "database": {
+                      "id": "237259d4-c94a-43ca-b8df-c5638a138640",
+                      "name": "Acc-PTB-Yard",
+                      "ref": "https://commongateway.nl/databases/ptb.yard.database.json"
+                    },
+                    "owner": {
+                      "id": "ce16243c-f2c3-4abc-a2c9-702df174b630",
+                      "name": "APIKEY_USER",
+                      "ref": "apikey.ptb@yard.nl"
+                    },
+                    "organization": {
+                      "id": "6e9ddea5-8479-42f3-a187-2b00d1e417f1",
+                      "name": "Yard PTB",
+                      "ref": "https://commongateway.nl/organizations/ptb.yard.organization.json"
+                    },
+                    "application": {
+                      "id": null,
+                      "name": null,
+                      "ref": null
+                    },
+                    "synchronizations": null
+                  },
+                  "type": null,
+                  "value": null,
+                  "id": "5e3dc7b7-7019-417b-ad8c-ad03b71f316c"
+                }
+              }
+            },
+            {
+              "_id": "13974d4e-d1aa-4d11-8a6f-0d79c15c38ec",
+              "_self": {
+                "id": "13974d4e-d1aa-4d11-8a6f-0d79c15c38ec",
+                "name": "Aanvullingen",
+                "self": "/api/kic/v1/taken/13974d4e-d1aa-4d11-8a6f-0d79c15c38ec",
+                "schema": {
+                  "id": "68f5a0c8-e2cd-4c54-b26f-33fbba5990b7",
+                  "name": "Taak",
+                  "ref": "https://commongateway.nl/klant.taak.schema.json"
+                },
+                "level": 1,
+                "dateCreated": "2024-10-07T12:07:40+00:00",
+                "dateModified": "2024-10-07T12:07:40+00:00",
+                "dateDeleted": null,
+                "database": {
+                  "id": "237259d4-c94a-43ca-b8df-c5638a138640",
+                  "name": "Acc-PTB-Yard",
+                  "ref": "https://commongateway.nl/databases/ptb.yard.database.json"
+                },
+                "owner": {
+                  "id": "ce16243c-f2c3-4abc-a2c9-702df174b630",
+                  "name": "APIKEY_USER",
+                  "ref": "apikey.ptb@yard.nl"
+                },
+                "organization": {
+                  "id": "6e9ddea5-8479-42f3-a187-2b00d1e417f1",
+                  "name": "Yard PTB",
+                  "ref": "https://commongateway.nl/organizations/ptb.yard.organization.json"
+                },
+                "application": {
+                  "id": null,
+                  "name": null,
+                  "ref": null
+                },
+                "synchronizations": null
+              },
+              "id": "13974d4e-d1aa-4d11-8a6f-0d79c15c38ec",
+              "type": null,
+              "url": null,
+              "data": {
+                "documentTypeUrl": "https://catalogi.preprod-rx-services.nl/api/v1/informatieobjecttypen/01d46bcb-ad82-4195-91ab-1d3ef2645df2"
+              },
+              "zaak": "https://zaken.preprod-rx-services.nl/api/v1/zaken/5000acca-8561-4196-ba79-f5d7aacd8bac",
+              "title": "Aanvullingen",
+              "onderwerp": "Omgevingsvergunning kerkstraat 1",
+              "toelichting": "Er ontbreken stukken",
+              "status": "Open",
+              "verloopdatum": "2024-10-31T15:00:00+01:00",
+              "vervaldatum": null,
+              "verzonden_data": [],
+              "verwerker_taak_id": null,
+              "extraData": {
+                "leverancier": "rx-mission"
+              },
+              "actie": "",
+              "identificatie": null,
+              "betrokkenen": []
+            }
+          ],
+          "count": 7,
+          "limit": 30,
+          "total": 7,
+          "offset": 0,
+          "page": 1,
+          "pages": 1
+        }
+      }
+]
