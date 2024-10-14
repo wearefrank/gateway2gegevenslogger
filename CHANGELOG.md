@@ -1,5 +1,11 @@
 [![conventional commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org) [![semantic versioning](https://img.shields.io/badge/semantic%20versioning-2.0.0-green.svg)](https://semver.org)
 
+## [1.2.0](https://github.com/wearefrank/gateway2gegevenslogger/compare/v1.1.1...v1.2.0) (2024-10-14)
+
+### 🍕 Features
+
+* generic translation between Frank!Gateway default log format and VerwerkingenLogging API model ([322cbd2](https://github.com/wearefrank/gateway2gegevenslogger/commit/322cbd2cba726db0aae53138cb266a65ae3e453d))
+
 ## [1.1.1](https://github.com/wearefrank/gateway2gegevenslogger/compare/v1.1.0...v1.1.1) (2024-10-09)
 
 ### 🐛 Bug Fixes
