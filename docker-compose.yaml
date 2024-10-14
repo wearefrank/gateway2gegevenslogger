@@ -19,4 +19,4 @@ services:
       - ./src/main/resources:/opt/frank/resources
       - ./src/test/testtool:/opt/frank/testtool
     restart: unless-stopped
-
+    
