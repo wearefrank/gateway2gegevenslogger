@@ -16,4 +16,4 @@ services:
     volumes:
       - ${SECRETS_PATH:-./src/main/secrets}:/opt/frank/secrets
     restart: unless-stopped
-
+    

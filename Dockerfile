@@ -4,7 +4,8 @@ FROM frankframework/frankframework:${FF_VERSION} as ff-base
 ## Uncomment this section if the Frank! contains custom classes.
 # Copy dependencies
 COPY --chown=tomcat lib/server/ /usr/local/tomcat/lib/
-COPY --chown=tomcat lib/webapp/ /usr/local/tomcat/webapps/ROOT/WEB-INF/lib/
+RUN rm /usr/local/tomcat/webapps/ROOT/WEB-INF/lib/ladybug-frontend-0.1.0-20240930.105753.jar
+COPY --chown=root lib/webapp/ /usr/local/tomcat/webapps/ROOT/WEB-INF/lib/
 
 # Compile custom class
 FROM eclipse-temurin:17-jdk-jammy AS custom-code-builder
