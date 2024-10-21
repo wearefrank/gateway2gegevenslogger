@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="8.3.0-20241003.042327">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="9.0.0-20241018.042327">
   <xs:element name="Configuration">
     <xs:annotation>
       <xs:documentation>Container of Adapters that belong together.
@@ -1707,6 +1707,16 @@
         </xs:complexType>
       </xs:element>
       <xs:element name="SapListener">
+        <xs:annotation>
+          <xs:documentation>Implementation of a IPushingListener,
+ that enables a Receiver to receive messages from SAP-systems.
+
+ In SAP, the function to be called is an RFC-function to the destination that is registered using &lt;code&gt;progid&lt;/code&gt;.
+ &lt;/b&gt;
+ N.B. If no requestFieldIndex or requestFieldName is specified, input is converted to xml;
+ If no replyFieldIndex or replyFieldName is specified, output is converted from xml.
+ &lt;/p&gt;</xs:documentation>
+        </xs:annotation>
         <xs:complexType>
           <xs:complexContent>
             <xs:extension base="SapListenerType">
@@ -3920,7 +3930,7 @@
       <xs:element name="DirectQuerySender">
         <xs:annotation>
           <xs:documentation>QuerySender that interprets the input message as a query, possibly with attributes.
- Messages are expected to contain sql-text.&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is true&lt;/p&gt;</xs:documentation>
+ Messages are expected to contain sql-text.&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is `true`&lt;/p&gt;</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:complexContent>
@@ -3980,7 +3990,7 @@
       </xs:element>
       <xs:element name="FixedQuerySender">
         <xs:annotation>
-          <xs:documentation>QuerySender that assumes a fixed query, possibly with attributes.&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;See DB2XMLWriter for ResultSet!&lt;/p&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is true&lt;/p&gt;</xs:documentation>
+          <xs:documentation>QuerySender that assumes a fixed query, possibly with attributes.&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;See DB2XMLWriter for ResultSet!&lt;/p&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is `true`&lt;/p&gt;</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:complexContent>
@@ -4367,6 +4377,10 @@
         </xs:complexType>
       </xs:element>
       <xs:element name="IdocSender">
+        <xs:annotation>
+          <xs:documentation>Implementation of sender that sends an IDoc to SAP.
+ N.B. The sending of the iDoc is committed right after the XA transaction is completed.</xs:documentation>
+        </xs:annotation>
         <xs:complexType>
           <xs:complexContent>
             <xs:extension base="IdocSenderType">
@@ -4750,7 +4764,7 @@
       </xs:element>
       <xs:element name="ResultSet2FileSender">
         <xs:annotation>
-          <xs:documentation>QuerySender that writes each row in a ResultSet to a file.&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is true&lt;/p&gt;</xs:documentation>
+          <xs:documentation>QuerySender that writes each row in a ResultSet to a file.&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is `true`&lt;/p&gt;</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:complexContent>
@@ -4792,6 +4806,12 @@
         </xs:complexType>
       </xs:element>
       <xs:element name="SapSender">
+        <xs:annotation>
+          <xs:documentation>Implementation of sender that calls a SAP RFC-function.
+
+ N.B. If no requestFieldIndex or requestFieldName is specified, input is converted from xml;
+ If no replyFieldIndex or replyFieldName is specified, output is converted to xml.</xs:documentation>
+        </xs:annotation>
         <xs:complexType>
           <xs:complexContent>
             <xs:extension base="SapSenderType">
@@ -4962,7 +4982,7 @@
  			&amp;lt;/rowset&amp;gt;
  		&amp;lt;/result&amp;gt;
  	&amp;lt;/resultset&amp;gt;&lt;/code&gt;&lt;/pre&gt;
- &lt;/p&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Support for stored procedures is currently experimental and changes in the currently produced output-format are expected.&lt;/p&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is true&lt;/p&gt;</xs:documentation>
+ &lt;/p&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Support for stored procedures is currently experimental and changes in the currently produced output-format are expected.&lt;/p&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is `true`&lt;/p&gt;</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:complexContent>
@@ -5114,7 +5134,7 @@
 
   sql   - type [0..1] one of {select;ddl;other}, other by default
         - query&lt;/code&gt;&lt;/pre&gt;
- &lt;br/&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is true&lt;/p&gt;</xs:documentation>
+ &lt;br/&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is `true`&lt;/p&gt;</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:complexContent>
@@ -8924,7 +8944,7 @@
       <xs:element name="DirectQueryErrorSender">
         <xs:annotation>
           <xs:documentation>QuerySender that interprets the input message as a query, possibly with attributes.
- Messages are expected to contain sql-text.&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is true&lt;/p&gt;</xs:documentation>
+ Messages are expected to contain sql-text.&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is `true`&lt;/p&gt;</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:complexContent>
@@ -8984,7 +9004,7 @@
       </xs:element>
       <xs:element name="FixedQueryErrorSender">
         <xs:annotation>
-          <xs:documentation>QuerySender that assumes a fixed query, possibly with attributes.&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;See DB2XMLWriter for ResultSet!&lt;/p&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is true&lt;/p&gt;</xs:documentation>
+          <xs:documentation>QuerySender that assumes a fixed query, possibly with attributes.&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;See DB2XMLWriter for ResultSet!&lt;/p&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is `true`&lt;/p&gt;</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:complexContent>
@@ -9371,6 +9391,10 @@
         </xs:complexType>
       </xs:element>
       <xs:element name="IdocErrorSender">
+        <xs:annotation>
+          <xs:documentation>Implementation of sender that sends an IDoc to SAP.
+ N.B. The sending of the iDoc is committed right after the XA transaction is completed.</xs:documentation>
+        </xs:annotation>
         <xs:complexType>
           <xs:complexContent>
             <xs:extension base="IdocSenderType">
@@ -9754,7 +9778,7 @@
       </xs:element>
       <xs:element name="ResultSet2FileErrorSender">
         <xs:annotation>
-          <xs:documentation>QuerySender that writes each row in a ResultSet to a file.&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is true&lt;/p&gt;</xs:documentation>
+          <xs:documentation>QuerySender that writes each row in a ResultSet to a file.&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is `true`&lt;/p&gt;</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:complexContent>
@@ -9796,6 +9820,12 @@
         </xs:complexType>
       </xs:element>
       <xs:element name="SapErrorSender">
+        <xs:annotation>
+          <xs:documentation>Implementation of sender that calls a SAP RFC-function.
+
+ N.B. If no requestFieldIndex or requestFieldName is specified, input is converted from xml;
+ If no replyFieldIndex or replyFieldName is specified, output is converted to xml.</xs:documentation>
+        </xs:annotation>
         <xs:complexType>
           <xs:complexContent>
             <xs:extension base="SapSenderType">
@@ -9966,7 +9996,7 @@
  			&amp;lt;/rowset&amp;gt;
  		&amp;lt;/result&amp;gt;
  	&amp;lt;/resultset&amp;gt;&lt;/code&gt;&lt;/pre&gt;
- &lt;/p&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Support for stored procedures is currently experimental and changes in the currently produced output-format are expected.&lt;/p&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is true&lt;/p&gt;</xs:documentation>
+ &lt;/p&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Support for stored procedures is currently experimental and changes in the currently produced output-format are expected.&lt;/p&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is `true`&lt;/p&gt;</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:complexContent>
@@ -10118,7 +10148,7 @@
 
   sql   - type [0..1] one of {select;ddl;other}, other by default
         - query&lt;/code&gt;&lt;/pre&gt;
- &lt;br/&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is true&lt;/p&gt;</xs:documentation>
+ &lt;br/&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Please note that the default value of &lt;code&gt;trimSpaces&lt;/code&gt; is `true`&lt;/p&gt;</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:complexContent>
@@ -12365,10 +12395,10 @@
           <xs:anyAttribute processContents="skip" />
         </xs:complexType>
       </xs:element>
-      <xs:group ref="ListenerElementGroupBase_3" />
+      <xs:group ref="ListenerElementGroupBase_2" />
     </xs:choice>
   </xs:group>
-  <xs:group name="ListenerElementGroupBase_3">
+  <xs:group name="ListenerElementGroupBase_2">
     <xs:choice>
       <xs:element name="PullingJmsListener">
         <xs:annotation>
@@ -13144,6 +13174,18 @@
         <xs:complexType>
           <xs:complexContent>
             <xs:extension base="ApiWsdlXmlValidatorType">
+              <xs:attribute name="elementRole" type="xs:string" fixed="pipe" use="prohibited" />
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AsyncSenderWithListenerPipe">
+        <xs:annotation>
+          <xs:documentation>Sends a message using an asynchronous sender and receives a reply from a listener.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="AsyncSenderWithListenerPipeType">
               <xs:attribute name="elementRole" type="xs:string" fixed="pipe" use="prohibited" />
             </xs:extension>
           </xs:complexContent>
@@ -13932,6 +13974,30 @@
           </xs:complexContent>
         </xs:complexType>
       </xs:element>
+      <xs:element name="ForPipe">
+        <xs:annotation>
+          <xs:documentation>ForPipe is a wrapper to use another pipe a fixed number of times. This can be accomplished by something like:
+
+ &lt;pre&gt;&lt;code&gt;&amp;lt;ForPipe name=&amp;quot;forPipe&amp;quot; startAt=&amp;quot;0&amp;quot; stopAt=&amp;quot;10&amp;quot;&amp;gt;
+ 		 	&amp;lt;Forward name=&amp;quot;stop&amp;quot; path=&amp;quot;EXIT&amp;quot; /&amp;gt;
+ 		 	&amp;lt;Forward name=&amp;quot;continue&amp;quot; path=&amp;quot;echoPipe&amp;quot;/&amp;gt;
+ 		&amp;lt;/ForPipe&amp;gt;
+
+ 		&amp;lt;EchoPipe name=&amp;quot;echoPipe&amp;quot; getInputFromSessionKey=&amp;quot;forPipe.iteration&amp;quot;&amp;gt;
+ 		 	&amp;lt;Forward name=&amp;quot;success&amp;quot; path=&amp;quot;forPipe&amp;quot;/&amp;gt;
+ 		&amp;lt;/EchoPipe&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+ &lt;p&gt;
+ This should call the echoPipe for i=0 until i=10.
+ &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;After completing the for loop, the sessionKey containing the for loop iteration state, will be removed.&lt;/p&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;The default format for the session key is "pipeName-iteration"&lt;/p&gt;</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="ForPipeType">
+              <xs:attribute name="elementRole" type="xs:string" fixed="pipe" use="prohibited" />
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="FxfWrapperPipe">
         <xs:annotation>
           <xs:documentation>FxF wrapper to be used with FxF3. When receiving files (direction=unwrap)
@@ -14432,6 +14498,34 @@
           </xs:complexContent>
         </xs:complexType>
       </xs:element>
+      <xs:element name="RegExPipe">
+        <xs:annotation>
+          <xs:documentation>Tries to match the input against the provided regex.
+
+ &lt;pre&gt;&lt;code&gt;&amp;lt;RegExPipe name=&amp;quot;regExPipe&amp;quot; regex=&amp;quot;^(.*?)(name!)$&amp;quot; flags=&amp;quot;CASE_INSENSITIVE&amp;quot;&amp;gt;
+ 		&amp;lt;Forward name=&amp;quot;then&amp;quot; path=&amp;quot;EXIT&amp;quot; /&amp;gt;
+ 		&amp;lt;Forward name=&amp;quot;else&amp;quot; path=&amp;quot;EXIT&amp;quot; /&amp;gt;
+ 	&amp;lt;/RegExPipe&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+ &lt;p&gt;Input:&lt;/p&gt;
+ &lt;pre&gt;&lt;code&gt;Hello name!&lt;/code&gt;&lt;/pre&gt;
+
+ &lt;p&gt;Output:&lt;/p&gt;
+ &lt;pre&gt;&lt;code&gt;&amp;lt;matches&amp;gt;
+ 		&amp;lt;match index=&amp;quot;1&amp;quot; value=&amp;quot;Hello name!&amp;quot;&amp;gt;
+ 			&amp;lt;group index=&amp;quot;1&amp;quot;&amp;gt;Hello &amp;lt;/group&amp;gt;
+ 			&amp;lt;group index=&amp;quot;2&amp;quot;&amp;gt;name!&amp;lt;/group&amp;gt;
+ 		&amp;lt;/match&amp;gt;
+  &amp;lt;/matches&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;TIP&lt;/b&gt;&lt;p&gt;https://regex101.com can be used to quickly create and debug regex expressions.&lt;/p&gt;</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="RegExPipeType">
+              <xs:attribute name="elementRole" type="xs:string" fixed="pipe" use="prohibited" />
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="RekenBoxCallerPipe">
         <xs:annotation>
           <xs:documentation>Perform a call to a RekenBox.
@@ -14597,9 +14691,7 @@
       </xs:element>
       <xs:element name="SenderPipe">
         <xs:annotation>
-          <xs:documentation>Plain extension to MessageSendingPipe that can be used directly in configurations.
- Only extension is that the setters for listener and sender have been made public, and can therefore
- be set from the configuration file.</xs:documentation>
+          <xs:documentation>Sends a message using an sender and optionally receives a reply from the same sender.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:complexContent>
@@ -14918,7 +15010,7 @@
  &lt;/ul&gt;
  The message sent each time to the sender is the filename of the entry found in the archive.
  The contents of the archive is available as a Stream or a String in a session variable.
-
+ &lt;p&gt;
  &lt;br/&gt;</xs:documentation>
         </xs:annotation>
         <xs:complexType>
@@ -15015,6 +15107,221 @@
   <xs:attributeGroup name="ApiPrincipalPipeCumulativeAttributeGroup">
     <xs:attributeGroup ref="ApiPrincipalPipeDeclaredAttributeGroup" />
     <xs:attributeGroup ref="FixedForwardPipeCumulativeAttributeGroup" />
+  </xs:attributeGroup>
+  <xs:complexType name="AsyncSenderWithListenerPipeType">
+    <xs:group ref="AsyncSenderWithListenerPipeCumulativeChildGroup" />
+    <xs:attributeGroup ref="AsyncSenderWithListenerPipeCumulativeAttributeGroup" />
+    <xs:attribute name="className" type="xs:string" fixed="org.frankframework.pipes.AsyncSenderWithListenerPipe" use="prohibited" />
+  </xs:complexType>
+  <xs:group name="AsyncSenderWithListenerPipeDeclaredChildGroup">
+    <xs:sequence>
+      <xs:group ref="MessageLogElementGroup" minOccurs="0" maxOccurs="1" />
+      <xs:group ref="InputWrapperElementGroup" minOccurs="0" maxOccurs="1" />
+      <xs:group ref="InputValidatorElementGroup" minOccurs="0" maxOccurs="1" />
+      <xs:group ref="SenderElementGroup" minOccurs="1" maxOccurs="1" />
+      <xs:group ref="ListenerElementGroup_2" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="AsyncSenderWithListenerPipeCumulativeChildGroup">
+    <xs:sequence>
+      <xs:group ref="AsyncSenderWithListenerPipeDeclaredChildGroup" />
+      <xs:group ref="OutputValidatorElementGroup" minOccurs="0" maxOccurs="1" />
+      <xs:group ref="OutputWrapperElementGroup" minOccurs="0" maxOccurs="1" />
+      <xs:group ref="AbstractPipeDeclaredChildGroup" />
+    </xs:sequence>
+  </xs:group>
+  <xs:attributeGroup name="AsyncSenderWithListenerPipeDeclaredAttributeGroup">
+    <xs:attribute name="correlationIDStyleSheet" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>Stylesheet to extract correlationid from message</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="correlationIDXPath" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>XPath expression to extract correlationid from message</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="correlationIDNamespaceDefs" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>Namespace defintions for correlationIDXPath. Must be in the form of a comma or space separated list of &lt;code&gt;prefix=namespaceUri&lt;/code&gt;-definitions</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="correlationIDSessionKey" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>Key of a PipelineSession-variable. If specified, the value of the PipelineSession variable is used as input for the XPathExpression or stylesheet, instead of the current input message</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="labelStyleSheet" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>Stylesheet to extract label from message</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="labelXPath" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>XPath expression to extract label from message</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="labelNamespaceDefs" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>Namespace definitions for labelXPath. Must be in the form of a comma or space separated list of &lt;code&gt;prefix=namespaceUri&lt;/code&gt;-definitions</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="auditTrailXPath" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>XPath expression to extract audit trail from message</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="auditTrailNamespaceDefs" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>Namespace defintions for auditTrailXPath. Must be in the form of a comma or space separated list of &lt;code&gt;prefix=namespaceUri&lt;/code&gt;-definitions</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="auditTrailSessionKey" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>Key of a PipelineSession-variable. If specified, the value of the PipelineSession variable is used as audit trail (instead of the default 'no audit trail)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="useInputForExtract" type="frankBoolean">
+      <xs:annotation>
+        <xs:documentation>If set &lt;code&gt;true&lt;/code&gt;, the input of the Pipe is used to extract audit trail, correlationid and label (instead of the wrapped input) Default: true</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="AsyncSenderWithListenerPipeCumulativeAttributeGroup">
+    <xs:attributeGroup ref="AsyncSenderWithListenerPipeDeclaredAttributeGroup" />
+    <xs:attributeGroup ref="MessageSendingPipeCumulativeAttributeGroup" />
+  </xs:attributeGroup>
+  <xs:complexType name="MessageSendingPipeType">
+    <xs:group ref="MessageSendingPipeCumulativeChildGroup" />
+    <xs:attributeGroup ref="MessageSendingPipeCumulativeAttributeGroup" />
+    <xs:attribute name="className" type="xs:string" fixed="org.frankframework.pipes.MessageSendingPipe" use="prohibited" />
+  </xs:complexType>
+  <xs:group name="MessageSendingPipeDeclaredChildGroup">
+    <xs:sequence>
+      <xs:group ref="MessageLogElementGroup" minOccurs="0" maxOccurs="1" />
+      <xs:group ref="InputValidatorElementGroup" minOccurs="0" maxOccurs="1" />
+      <xs:group ref="OutputValidatorElementGroup" minOccurs="0" maxOccurs="1" />
+      <xs:group ref="InputWrapperElementGroup" minOccurs="0" maxOccurs="1" />
+      <xs:group ref="OutputWrapperElementGroup" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="MessageSendingPipeCumulativeChildGroup">
+    <xs:sequence>
+      <xs:group ref="MessageSendingPipeDeclaredChildGroup" />
+      <xs:group ref="AbstractPipeDeclaredChildGroup" />
+    </xs:sequence>
+  </xs:group>
+  <xs:attributeGroup name="MessageSendingPipeDeclaredAttributeGroup">
+    <xs:attribute name="linkMethod">
+      <xs:annotation>
+        <xs:documentation>For asynchronous communication, the server side may either use the messageID or the correlationID
+ in the correlationID field of the reply message. Use this property to set the behaviour of the reply-listener. Default: CORRELATIONID</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:union memberTypes="LinkMethodAttributeValuesType_2 variableRef" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="hideRegex" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>Next to common usage in AbstractPipe, also strings in the error/logstore are masked</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="hideMethod">
+      <xs:annotation>
+        <xs:documentation>(Only used when hideRegex is not empty and only applies to error/logstore) Default: all</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:union memberTypes="HideMethodAttributeValuesType variableRef" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="checkXmlWellFormed" type="frankBoolean">
+      <xs:annotation>
+        <xs:documentation>If set &lt;code&gt;true&lt;/code&gt;, the XML Well-Formedness of the result is checked Default: false</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="checkRootTag" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>If set, besides the XML Well-Formedness the root element of the result is checked to be equal to the value set</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="resultOnTimeOut" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>The message (e.g. 'receiver timed out') that is returned when the time listening for a reply message
+ exceeds the timeout, or in other situations no reply message is received.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="maxRetries" type="frankInt">
+      <xs:annotation>
+        <xs:documentation>The number of times a processing attempt is retried after a timeout or an exception is caught or after an incorrect reply is received (see also &lt;code&gt;retryXPath&lt;/code&gt;) Default: 0</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="retryMinInterval" type="frankInt">
+      <xs:annotation>
+        <xs:documentation>The starting number of seconds waited after an unsuccessful processing attempt before another processing attempt is made. Each next retry this interval is doubled with a upper limit of &lt;code&gt;retryMaxInterval&lt;/code&gt; Default: 1</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="retryMaxInterval" type="frankInt">
+      <xs:annotation>
+        <xs:documentation>The maximum number of seconds waited after an unsuccessful processing attempt before another processing attempt is made Default: 600</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="retryXPath" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>XPath expression evaluated on each technical successful reply. Retry is done if condition returns true</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="retryNamespaceDefs" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>Namespace defintions for retryXPath. Must be in the form of a comma or space separated list of &lt;code&gt;prefix=namespaceUri&lt;/code&gt;-definitions</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="presumedTimeOutInterval" type="frankInt">
+      <xs:annotation>
+        <xs:documentation>If the previous call was a timeout, the maximum time &lt;i&gt;in seconds&lt;/i&gt; after this timeout to presume the current call is also a timeout. Default: 0</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="stubFilename" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>If set, the pipe returns a message from a file, instead of doing the regular process</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="timeoutOnResult" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>If not empty, a TimeoutException is thrown when the result equals this value (for testing purposes only)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="exceptionOnResult" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>If not empty, a PipeRunException is thrown when the result equals this value (for testing purposes only)</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="MessageSendingPipeCumulativeAttributeGroup">
+    <xs:attributeGroup ref="MessageSendingPipeDeclaredAttributeGroup" />
+    <xs:attributeGroup ref="FixedForwardPipeDeclaredAttributeGroup" />
+    <xs:attribute name="name" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>The functional name of this pipe. Can be referenced by the &lt;code&gt;path&lt;/code&gt; attribute of a PipeForward.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute ref="getInputFromSessionKey" />
+    <xs:attribute ref="getInputFromFixedValue" />
+    <xs:attribute ref="emptyInputReplacement" />
+    <xs:attribute ref="preserveInput" />
+    <xs:attribute ref="storeResultInSessionKey" />
+    <xs:attribute ref="maxThreads" />
+    <xs:attribute ref="chompCharSize" />
+    <xs:attribute ref="elementToMove" />
+    <xs:attribute ref="elementToMoveSessionKey" />
+    <xs:attribute ref="elementToMoveChain" />
+    <xs:attribute ref="durationThreshold" />
+    <xs:attribute ref="removeCompactMsgNamespaces" />
+    <xs:attribute ref="restoreMovedElements" />
+    <xs:attribute ref="sizeStatistics" />
+    <xs:attribute ref="writeToSecLog" />
+    <xs:attribute ref="secLogSessionKeys" />
+    <xs:attribute ref="logIntermediaryResults" />
+    <xs:attributeGroup ref="TransactionAttributesDeclaredAttributeGroup" />
   </xs:attributeGroup>
   <xs:complexType name="Base64PipeType">
     <xs:group ref="AbstractPipeDeclaredChildGroup" />
@@ -15190,193 +15497,6 @@
   <xs:attributeGroup name="IteratingPipeCumulativeAttributeGroup">
     <xs:attributeGroup ref="IteratingPipeDeclaredAttributeGroup" />
     <xs:attributeGroup ref="MessageSendingPipeCumulativeAttributeGroup" />
-  </xs:attributeGroup>
-  <xs:complexType name="MessageSendingPipeType">
-    <xs:group ref="MessageSendingPipeCumulativeChildGroup" />
-    <xs:attributeGroup ref="MessageSendingPipeCumulativeAttributeGroup" />
-    <xs:attribute name="className" type="xs:string" fixed="org.frankframework.pipes.MessageSendingPipe" use="prohibited" />
-  </xs:complexType>
-  <xs:group name="MessageSendingPipeDeclaredChildGroup">
-    <xs:sequence>
-      <xs:group ref="MessageLogElementGroup" minOccurs="0" maxOccurs="1" />
-      <xs:group ref="InputValidatorElementGroup" minOccurs="0" maxOccurs="1" />
-      <xs:group ref="OutputValidatorElementGroup" minOccurs="0" maxOccurs="1" />
-      <xs:group ref="InputWrapperElementGroup" minOccurs="0" maxOccurs="1" />
-      <xs:group ref="OutputWrapperElementGroup" minOccurs="0" maxOccurs="1" />
-    </xs:sequence>
-  </xs:group>
-  <xs:group name="MessageSendingPipeCumulativeChildGroup">
-    <xs:sequence>
-      <xs:group ref="MessageSendingPipeDeclaredChildGroup" />
-      <xs:group ref="AbstractPipeDeclaredChildGroup" />
-    </xs:sequence>
-  </xs:group>
-  <xs:attributeGroup name="MessageSendingPipeDeclaredAttributeGroup">
-    <xs:attribute name="linkMethod">
-      <xs:annotation>
-        <xs:documentation>For asynchronous communication, the server side may either use the messageID or the correlationID
- in the correlationID field of the reply message. Use this property to set the behaviour of the reply-listener. Default: CORRELATIONID</xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:union memberTypes="LinkMethodAttributeValuesType_2 variableRef" />
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="correlationIDStyleSheet" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>Stylesheet to extract correlationid from message</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="correlationIDXPath" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>XPath expression to extract correlationid from message</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="correlationIDNamespaceDefs" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>Namespace defintions for correlationIDXPath. Must be in the form of a comma or space separated list of &lt;code&gt;prefix=namespaceUri&lt;/code&gt;-definitions</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="correlationIDSessionKey" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>Key of a PipelineSession-variable. If specified, the value of the PipelineSession variable is used as input for the XPathExpression or stylesheet, instead of the current input message</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="labelStyleSheet" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>Stylesheet to extract label from message</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="labelXPath" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>XPath expression to extract label from message</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="labelNamespaceDefs" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>Namespace defintions for labelXPath. Must be in the form of a comma or space separated list of &lt;code&gt;prefix=namespaceUri&lt;/code&gt;-definitions</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="auditTrailXPath" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>XPath expression to extract audit trail from message</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="auditTrailNamespaceDefs" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>Namespace defintions for auditTrailXPath. Must be in the form of a comma or space separated list of &lt;code&gt;prefix=namespaceUri&lt;/code&gt;-definitions</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="auditTrailSessionKey" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>Key of a PipelineSession-variable. If specified, the value of the PipelineSession variable is used as audit trail (instead of the default 'no audit trail)</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="useInputForExtract" type="frankBoolean">
-      <xs:annotation>
-        <xs:documentation>If set &lt;code&gt;true&lt;/code&gt;, the input of the Pipe is used to extract audit trail, correlationid and label (instead of the wrapped input) Default: true</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="hideRegex" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>Next to common usage in AbstractPipe, also strings in the error/logstore are masked</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="hideMethod">
-      <xs:annotation>
-        <xs:documentation>(Only used when hideRegex is not empty and only applies to error/logstore) Default: all</xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:union memberTypes="HideMethodAttributeValuesType variableRef" />
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="checkXmlWellFormed" type="frankBoolean">
-      <xs:annotation>
-        <xs:documentation>If set &lt;code&gt;true&lt;/code&gt;, the XML Well-Formedness of the result is checked Default: false</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="checkRootTag" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>If set, besides the XML Well-Formedness the root element of the result is checked to be equal to the value set</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="resultOnTimeOut" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>The message (e.g. 'receiver timed out') that is returned when the time listening for a reply message
- exceeds the timeout, or in other situations no reply message is received.</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="maxRetries" type="frankInt">
-      <xs:annotation>
-        <xs:documentation>The number of times a processing attempt is retried after a timeout or an exception is caught or after an incorrect reply is received (see also &lt;code&gt;retryXPath&lt;/code&gt;) Default: 0</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="retryMinInterval" type="frankInt">
-      <xs:annotation>
-        <xs:documentation>The starting number of seconds waited after an unsuccessful processing attempt before another processing attempt is made. Each next retry this interval is doubled with a upper limit of &lt;code&gt;retryMaxInterval&lt;/code&gt; Default: 1</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="retryMaxInterval" type="frankInt">
-      <xs:annotation>
-        <xs:documentation>The maximum number of seconds waited after an unsuccessful processing attempt before another processing attempt is made Default: 600</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="retryXPath" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>XPath expression evaluated on each technical successful reply. Retry is done if condition returns true</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="retryNamespaceDefs" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>Namespace defintions for retryXPath. Must be in the form of a comma or space separated list of &lt;code&gt;prefix=namespaceUri&lt;/code&gt;-definitions</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="presumedTimeOutInterval" type="frankInt">
-      <xs:annotation>
-        <xs:documentation>If the previous call was a timeout, the maximum time &lt;i&gt;in seconds&lt;/i&gt; after this timeout to presume the current call is also a timeout. Default: 0</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="stubFilename" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>If set, the pipe returns a message from a file, instead of doing the regular process</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="timeoutOnResult" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>If not empty, a TimeoutException is thrown when the result equals this value (for testing purposes only)</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="exceptionOnResult" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>If not empty, a PipeRunException is thrown when the result equals this value (for testing purposes only)</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="MessageSendingPipeCumulativeAttributeGroup">
-    <xs:attributeGroup ref="MessageSendingPipeDeclaredAttributeGroup" />
-    <xs:attributeGroup ref="FixedForwardPipeDeclaredAttributeGroup" />
-    <xs:attribute name="name" type="xs:string" use="required">
-      <xs:annotation>
-        <xs:documentation>The functional name of this pipe. Can be referenced by the &lt;code&gt;path&lt;/code&gt; attribute of a PipeForward.</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute ref="getInputFromSessionKey" />
-    <xs:attribute ref="getInputFromFixedValue" />
-    <xs:attribute ref="emptyInputReplacement" />
-    <xs:attribute ref="preserveInput" />
-    <xs:attribute ref="storeResultInSessionKey" />
-    <xs:attribute ref="maxThreads" />
-    <xs:attribute ref="chompCharSize" />
-    <xs:attribute ref="elementToMove" />
-    <xs:attribute ref="elementToMoveSessionKey" />
-    <xs:attribute ref="elementToMoveChain" />
-    <xs:attribute ref="durationThreshold" />
-    <xs:attribute ref="removeCompactMsgNamespaces" />
-    <xs:attribute ref="restoreMovedElements" />
-    <xs:attribute ref="sizeStatistics" />
-    <xs:attribute ref="writeToSecLog" />
-    <xs:attribute ref="secLogSessionKeys" />
-    <xs:attribute ref="logIntermediaryResults" />
-    <xs:attributeGroup ref="TransactionAttributesDeclaredAttributeGroup" />
   </xs:attributeGroup>
   <xs:attributeGroup name="JdbcIteratingPipeBaseDeclaredAttributeGroup">
     <xs:attribute name="query" type="xs:string">
@@ -15699,6 +15819,11 @@
         <xs:union memberTypes="DataSonnetOutputTypeAttributeValuesType variableRef" />
       </xs:simpleType>
     </xs:attribute>
+    <xs:attribute name="computeMimeType" type="frankBoolean">
+      <xs:annotation>
+        <xs:documentation>Compute mimetype when unknown. Requires more compute</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:attributeGroup>
   <xs:attributeGroup name="DataSonnetPipeCumulativeAttributeGroup">
     <xs:attributeGroup ref="DataSonnetPipeDeclaredAttributeGroup" />
@@ -15900,6 +16025,27 @@
   <xs:attributeGroup name="ForEachChildElementPipeCumulativeAttributeGroup">
     <xs:attributeGroup ref="ForEachChildElementPipeDeclaredAttributeGroup" />
     <xs:attributeGroup ref="StringIteratorPipeCumulativeAttributeGroup" />
+  </xs:attributeGroup>
+  <xs:complexType name="ForPipeType">
+    <xs:group ref="AbstractPipeDeclaredChildGroup" />
+    <xs:attributeGroup ref="ForPipeCumulativeAttributeGroup" />
+    <xs:attribute name="className" type="xs:string" fixed="org.frankframework.pipes.ForPipe" use="prohibited" />
+  </xs:complexType>
+  <xs:attributeGroup name="ForPipeDeclaredAttributeGroup">
+    <xs:attribute name="startAt" type="frankInt">
+      <xs:annotation>
+        <xs:documentation>Starts counting at this value. Default: 0</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="stopAt" type="frankInt" use="required">
+      <xs:annotation>
+        <xs:documentation>Break from the loop when incrementSessionKey equals this value</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="ForPipeCumulativeAttributeGroup">
+    <xs:attributeGroup ref="ForPipeDeclaredAttributeGroup" />
+    <xs:attributeGroup ref="AbstractPipeCumulativeAttributeGroup" />
   </xs:attributeGroup>
   <xs:complexType name="GetFromSessionType">
     <xs:group ref="AbstractPipeDeclaredChildGroup" />
@@ -16974,6 +17120,30 @@
     <xs:attributeGroup ref="PutSystemDateInSessionDeclaredAttributeGroup" />
     <xs:attributeGroup ref="FixedForwardPipeCumulativeAttributeGroup" />
   </xs:attributeGroup>
+  <xs:complexType name="RegExPipeType">
+    <xs:group ref="AbstractPipeDeclaredChildGroup" />
+    <xs:attributeGroup ref="RegExPipeCumulativeAttributeGroup" />
+    <xs:attribute name="className" type="xs:string" fixed="org.frankframework.pipes.RegExPipe" use="prohibited" />
+  </xs:complexType>
+  <xs:attributeGroup name="RegExPipeDeclaredAttributeGroup">
+    <xs:attribute name="regex" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>The regex expression to match against the input.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="flags">
+      <xs:annotation>
+        <xs:documentation>Comma seperated list of flags, which changes the behavior of the regex expression.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:union memberTypes="RegExFlagAttributeValuesType variableRef" />
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="RegExPipeCumulativeAttributeGroup">
+    <xs:attributeGroup ref="RegExPipeDeclaredAttributeGroup" />
+    <xs:attributeGroup ref="AbstractPipeCumulativeAttributeGroup" />
+  </xs:attributeGroup>
   <xs:complexType name="RekenBoxCallerType">
     <xs:group ref="AbstractPipeDeclaredChildGroup" />
     <xs:attributeGroup ref="RekenBoxCallerCumulativeAttributeGroup" />
@@ -17394,7 +17564,6 @@
       <xs:group ref="InputWrapperElementGroup" minOccurs="0" maxOccurs="1" />
       <xs:group ref="InputValidatorElementGroup" minOccurs="0" maxOccurs="1" />
       <xs:group ref="SenderElementGroup" minOccurs="1" maxOccurs="1" />
-      <xs:group ref="ListenerElementGroup_2" minOccurs="0" maxOccurs="1" />
     </xs:sequence>
   </xs:group>
   <xs:group name="SenderPipeCumulativeChildGroup">
@@ -17769,12 +17938,6 @@
     <xs:attribute name="xpathExpression" type="xs:string">
       <xs:annotation>
         <xs:documentation>xpath expression to be applied to the input-message. if not set, no transformation is done</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="regex" type="xs:string">
-      <xs:annotation>
-        <xs:documentation>Regular expression to be applied to the input-message (ignored if &lt;code&gt;xpathExpression&lt;/code&gt; is specified).
- The input-message &lt;b&gt;fully&lt;/b&gt; matching the given regular expression leads to the 'then'-forward</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="xsltVersion" type="frankInt">
@@ -18172,7 +18335,7 @@
       </xs:element>
       <xs:element name="CheckReloadJob">
         <xs:annotation>
-          <xs:documentation>Frank!Framework job which periodically looks in the &lt;code&gt;IBISCONFIG&lt;/code&gt; table to see if a new Configuration should be loaded.&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;This is a default job that can be controlled with the property checkReload.active and checkReload.interval.&lt;/p&gt;</xs:documentation>
+          <xs:documentation>Frank!Framework job which periodically looks in the &lt;code&gt;IBISCONFIG&lt;/code&gt; table to see if a new Configuration should be loaded.&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;This is a default job that can be controlled with the property `checkReload.active` and `checkReload.interval`.&lt;/p&gt;</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:complexContent>
@@ -18400,7 +18563,7 @@
  &lt;/p&gt;
 
  &lt;p&gt;Pay attention to the effects of '?' and '*' in the day-of-week and
- day-of-month fields!&lt;/p&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;This is a default job that can be controlled with the property cleanup.database.active and cleanup.database.cron.&lt;/p&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Support for specifying both a day-of-week and a day-of-month
+ day-of-month fields!&lt;/p&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;This is a default job that can be controlled with the property `cleanup.database.active` and `cleanup.database.cron`.&lt;/p&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Support for specifying both a day-of-week and a day-of-month
           value is not complete (you'll need to use the '?' character in on of these fields).&lt;/p&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Be careful when setting fire times between mid-night and 1:00 AM -
           "daylight savings" can cause a skip or a repeat depending on whether
           the time moves back or jumps forward.&lt;/p&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;Specified in the Configuration.xml inside a &lt;code&gt;&amp;lt;scheduler&amp;gt;&lt;/code&gt; element. 
@@ -18887,7 +19050,7 @@
     Since they have been removed from the database, remove them from the Quartz Scheduler
  
  
- Frank!Framework job which periodically looks in the IBISSCHEDULES table to see if a new DatabaseJob should be loaded.&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;This is a default job that can be controlled with the property loadDatabaseSchedules.active and loadDatabaseSchedules.interval.&lt;/p&gt;</xs:documentation>
+ Frank!Framework job which periodically looks in the `IBISSCHEDULES` table to see if a new DatabaseJob should be loaded.&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;This is a default job that can be controlled with the property `loadDatabaseSchedules.active` and `loadDatabaseSchedules.interval`.&lt;/p&gt;</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:complexContent>
@@ -18900,7 +19063,7 @@
       <xs:element name="RecoverAdaptersJob">
         <xs:annotation>
           <xs:documentation>Frank!Framework Adapter recovery-job, which monitors all adapter states, attempts to recover them if required,
- and logs this information to the &lt;code&gt;HEARTBEAT&lt;/code&gt; log appender.&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;This is a default job that can be controlled with the property recover.adapters.interval.&lt;/p&gt;</xs:documentation>
+ and logs this information to the &lt;code&gt;HEARTBEAT&lt;/code&gt; log appender.&lt;br&gt;&lt;br&gt;&lt;b&gt;INFO&lt;/b&gt;&lt;p&gt;This is a default job that can be controlled with the property `recover.adapters.interval`.&lt;/p&gt;</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:complexContent>
@@ -18913,7 +19076,7 @@
       <xs:element name="SendMessageJob">
         <xs:annotation>
           <xs:documentation>Scheduled job to send messages to a FrankListener.
- Message may be null (or empty).
+ Message may be `null` (or empty).
  
  &lt;h3&gt;Possible cron expressions:&lt;/h3&gt;
  &lt;p&gt;
@@ -20198,7 +20361,7 @@
  &lt;ul&gt;
  	  &lt;li&gt;parameter 'entryName', resolving to RDN of entry to read&lt;/li&gt;
     &lt;li&gt;parameter 'filterExpression', specifying the entries searched for&lt;/li&gt;
- 	  &lt;li&gt;optional attribute 'attributesReturned' containing attributes to be returned&lt;/li&gt;
+ 	  &lt;li&gt;optional attribute 'attributesToReturn' containing attributes to be returned&lt;/li&gt;
  &lt;/ul&gt;</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -20208,7 +20371,7 @@
  &lt;ul&gt;
  	  &lt;li&gt;parameter 'entryName', resolving to RDN of entry to read&lt;/li&gt;
     &lt;li&gt;parameter 'filterExpression', specifying the entries searched for&lt;/li&gt;
- 	  &lt;li&gt;optional attribute 'attributesReturned' containing attributes to be returned&lt;/li&gt;
+ 	  &lt;li&gt;optional attribute 'attributesToReturn' containing attributes to be returned&lt;/li&gt;
  &lt;/ul&gt;</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -20217,7 +20380,7 @@
           <xs:documentation>Get a list of the direct children of the specifed root. Configuration requirements:
  &lt;ul&gt;
  	  &lt;li&gt;parameter 'entryName', resolving to RDN of entry to read&lt;/li&gt;
- 	  &lt;li&gt;optional attribute 'attributesReturned' containing attributes to be returned&lt;/li&gt;
+ 	  &lt;li&gt;optional attribute 'attributesToReturn' containing attributes to be returned&lt;/li&gt;
  &lt;/ul&gt;</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -20226,7 +20389,7 @@
           <xs:documentation>Get a copy of the complete tree below the specified root. Configuration requirements:
  &lt;ul&gt;
  	  &lt;li&gt;parameter 'entryName', resolving to RDN of entry to read&lt;/li&gt;
- 	  &lt;li&gt;optional attribute 'attributesReturned' containing attributes to be returned&lt;/li&gt;
+ 	  &lt;li&gt;optional attribute 'attributesToReturn' containing attributes to be returned&lt;/li&gt;
  &lt;/ul&gt;</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -20707,6 +20870,19 @@
       <xs:enumeration value="COMBINE" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="RegExFlagAttributeValuesType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CANON_EQ" />
+      <xs:enumeration value="CASE_INSENSITIVE" />
+      <xs:enumeration value="COMMENTS" />
+      <xs:enumeration value="DOT_ALL" />
+      <xs:enumeration value="LITERAL" />
+      <xs:enumeration value="MULTILINE" />
+      <xs:enumeration value="UNICODE_CASE" />
+      <xs:enumeration value="UNICODE_CHARACTER_CLASS" />
+      <xs:enumeration value="UNIX_LINES" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="MessageProtocolAttributeValuesType_3">
     <xs:restriction base="xs:string">
       <xs:enumeration value="RR">
@@ -20758,12 +20934,12 @@
       </xs:enumeration>
       <xs:enumeration value="WRITE">
         <xs:annotation>
-          <xs:documentation>Add an item to to an existing collection</xs:documentation>
+          <xs:documentation>Add an item to an existing collection</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="LAST">
         <xs:annotation>
-          <xs:documentation>Combination of WRITE and CLOSE: Add an item to to an existing collection, then finalize the collection</xs:documentation>
+          <xs:documentation>Combination of WRITE and CLOSE: Add an item to an existing collection, then finalize the collection</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="CLOSE">
